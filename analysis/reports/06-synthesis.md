@@ -338,6 +338,8 @@ R3 §D 列出 prompt injection 防御 5 范式，选择取决于场景：
 
 R5 §4.4 揭示反直觉发现：**工具数与文件大小 Pearson r 仅 0.10**——巨型 prompt 体积主要来自安全/行为叙事而非工具 schema。R5 §4.2-4.3 提供工具数分布：
 
+> **R9 注记**：r=0.10 基于 n=40（仅含 tools_count > 0 的文件）；纳入全部 66 文件时 r=0.35（详见 R5 §4.4 方法论注记）。n=40 子集分析更有意义——它回答"定义了工具的文件中，工具数是否驱动文件大小"。
+
 - 0 工具：consumer chatbot（Hume/Kimi/MiniMax/Llama4/Grok3 等）
 - 3-9 工具：consumer + 工具（ChatGPT 4o/5/o3、GPT-4.5、Atlas 12、Dia 3）
 - 13-19 工具：coding agent 主流区间（Cursor 13 / Cline 14 / Windsurf 19 / Replit 18 / SameDev 16）
@@ -512,7 +514,7 @@ grep -rc 'PLINIVS' /workspace
 grep -rc 'PLINIVS' /workspace/ANTHROPIC /workspace/OPENAI ... /workspace/CLUELY
 ```
 
-**R5 §3 实际命令已正确处理**（仅扫描 27 vendor 目录），但本反思作为方法论 lesson 记录，提醒未来类似任务。
+**R5 §3 实际命令已正确处理**（仅扫描 25 vendor 目录），但本反思作为方法论 lesson 记录，提醒未来类似任务。
 
 ## 4.5 反思 5 — 大文件分段读取的局限（R2 Devin2/ChatKit 未逐一核验）
 
@@ -631,7 +633,7 @@ grep -rc 'PLINIVS' /workspace/ANTHROPIC /workspace/OPENAI ... /workspace/CLUELY
 
 ### 6.1.1 补全哪些 vendor
 
-R5 §1.4 显示 27 vendor 中已有 25 个（注：R2/R5 标注"27 vendor"为误差，实际 distinct vendor 计数为 25）。**建议补全以下 vendor**：
+当前数据集覆盖 25 个 vendor。**建议补全以下 vendor**：
 
 - **Cohere**（Command R+）：enterprise LLM 赛道，与 Anthropic/OpenAI 形成三角对比；
 - **Amazon**（Amazon Q / Titan）：AWS 生态，coding agent 赛道补充；

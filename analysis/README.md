@@ -1,7 +1,7 @@
 # CL4R1T4S 项目深度分析 — 最终 README
 
 > **任务**：使用 long-range-task-execution skill 对 CL4R1T4S 项目（66 个 AI 系统提示词、25 个 vendor）进行深度分析
-> **执行**：8 轮迭代（R1-R8），2026-07-23
+> **执行**：10 轮迭代（R1-R10），2026-07-23
 > **方法**：长程任务执行规范，含 3 类审计 + 接通型迭代 + 反思→立即重启
 
 ## 目录结构
@@ -25,7 +25,9 @@
 │   ├── 05-quantitative.md             # R5 定量分析
 │   ├── 06-synthesis.md                # R6 综合报告
 │   ├── 07-audit.md                    # R7 三类审计
-│   └── 08-connection.md               # R8 接通型迭代
+│   ├── 08-connection.md               # R8 接通型迭代
+│   ├── 09-deep-audit.md               # R9 深度审计与数据完整性修复
+│   └── 10-connection.md               # R10 连接型迭代（bytes 补全传播修复）
 └── reports/                           # 正式分析报告
     ├── 01-inventory.md                # 人类可读清单（按 vendor 分组）
     ├── 02-structural.md               # 7 维度 scaffolding 模式（450 行）
@@ -36,7 +38,7 @@
     └── 07-audit.md                    # 审计报告（622 行）
 ```
 
-## 8 轮迭代概览
+## 10 轮迭代概览
 
 | 轮次 | 名称 | 产出 | 关键发现 |
 |---|---|---|---|
@@ -48,17 +50,19 @@
 | R6 | Synthesis | 06-synthesis.md（812 行） | 10 关键洞察 + 10 行业趋势 + 15 设计启示 |
 | R7 | Audit | 07-audit.md（622 行） | 5 类 gap（G1-G5）；G1 已立即修复 |
 | R8 | Connection | 08-connection.md | R8-S1/S2 修复 R2/R3/R4/R5 过时声明 + Windsurf_Pools 拼写 |
+| R9 | Deep Audit | 09-deep-audit.md | **G6: inventory.csv 36 文件 bytes 空值修复**；G8: 06-synthesis "27 vendor" 残留；G10/G11: 方法论注记 |
+| R10 | Connection | 10-connection.md | **G12/G13: 数据层 bytes 修复传播到报告层**（02-structural Top10 + 01-inventory 清单）；新发现 bytes/line 密度比洞察 |
 
 ## 6 子目标最终状态
 
 | 子目标 | 深度 | 主要证据 |
 |---|---|---|
-| 1. Definition | 深 | 66 文件入 inventory.csv，25 vendor 全覆盖 |
-| 2. Derivation | 深 | R2 7 维度 + R5 定量推导（相关性、时间趋势、词频） |
-| 3. Validation | 深 | R3 8 维度 + R5 shell 实测 + R7 3 类审计 |
+| 1. Definition | 深 | 66 文件入 inventory.csv，25 vendor 全覆盖；R9 补全 bytes 字段至 100% |
+| 2. Derivation | 深 | R2 7 维度 + R5 定量推导（相关性、时间趋势、词频）；R9 补充 Pearson r 方法论注记 |
+| 3. Validation | 深 | R3 8 维度 + R5 shell 实测 + R7 3 类审计；R9 验证 4 项定量声明（MD5/词频/占比/r 值） |
 | 4. MVP | 深 | R6 综合报告可独立成篇 |
 | 5. Extension | 中 | R6 §5 列 9 个未解决问题指明后续方向 |
-| 6. Consistency | 深 | R7 审计 + R8 接通修复，所有过时声明已校正 |
+| 6. Consistency | 深 | R7 审计 + R8 接通修复 + R9 深度审计 + R10 连接型传播修复，数据层与报告层 bytes 完全同步，零 "—" 残留 |
 
 ## 核心发现速览
 
@@ -114,14 +118,15 @@
 | **安全研究** | R3 行为分析 + R7 审计 |
 | **跨 vendor 对比** | R4 |
 | **可复现数字** | R5 + data/ 中间数据文件 |
-| **方法论学习者** | iterations/ 全部 8 轮记录 |
+| **方法论学习者** | iterations/ 全部 10 轮记录 |
 
 ## 最终状态
 
 ✅ 6 子目标全部"深"深度
-✅ 8 轮过程记录全写
-✅ 5 类审计 gap 全部处理（G1 立即修复；G2-G4 经 R8 修复；G5 决定保留 notes 简洁性）
-✅ inventory.csv 与所有报告数字一致（66 文件 / 25 vendor）
+✅ 10 轮过程记录全写
+✅ 13 类审计 gap 全部处理（G1 立即修复；G2-G4 经 R8 修复；G5 保留 notes 简洁性；G6-G8 经 R9 修复；G9 已记录限制；G10-G11 已文档化；G12-G13 经 R10 连接型传播修复）
+✅ inventory.csv ↔ size_stats.csv ↔ vendor_stats.csv 三层垂直一致（66 文件 / 25 vendor / 1,619,689 字节）
+✅ 数据层与报告层 bytes 完全同步（01-inventory.md / 02-structural.md Top10 零空值残留）
 ✅ MVP 端到端可读（R6 独立成篇）
 
 **Stop Decision Protocol 通过**：可诚实停止。
