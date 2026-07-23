@@ -1,0 +1,67 @@
+vendor,file,lines,bytes,format,file_date,content_date,model,tools_count,has_safety,has_xml,notes
+ANTHROPIC,CLAUDE-FABLE-5.md,1597,122750,.md,,2026-06-09,Claude Fable 5 (Mythos),18,Y,Y,最新Anthropic；MCP Apps+持久存储+9 Skills
+ANTHROPIC,Claude-4.1.txt,494,58212,.txt,,2025-08-05,Claude Opus 4.1,2,Y,Y,~100%重建版；20词版权
+ANTHROPIC,Claude-4.5-Opus.txt,1222,92710,.txt,,2025-11-24,Claude Opus 4.5,8,Y,Y,Past Chats+Computer Use+Skills
+ANTHROPIC,Claude-Design-Sys-Prompt.txt,422,73266,.txt,,,Claude Design (haiku-4-5),30+,Y,Y,设计制品生产；Starter components
+ANTHROPIC,Claude-Opus-4.7.txt,1408,149724,.txt,,2026-04-16,Claude Opus 4.7,4,Y,Y,第二大；Visualizer工具；{tag}花括号
+ANTHROPIC,Claude_4.txt,368,64487,.txt,,2025-05-22,Claude Sonnet 4,2,Y,Y,interleaved思考16000
+ANTHROPIC,Claude_Code_03-04-24.md,50,,.md,2024-03-04,,Claude Code CLI,0,Y,N,最短；CLAUDE.md记忆
+ANTHROPIC,Claude_Opus_4.6.txt,1047,102687,.txt,,2026-02-06,Claude Opus 4.6,14,Y,Y,a-n-t-m-l连字符标签；end_conversation工具
+ANTHROPIC,Claude_Sonnet-4.5_Sep-29-2025.txt,520,85298,.txt,,2025-09-29,Claude Sonnet 4.5,4,Y,Y,Past Chats 16 examples；Claudeception
+ANTHROPIC,Claude_Sonnet_3.5.md,204,22967,.md,,2024-06-20,Claude 3.5 Sonnet,0,Y,Y,完全面盲协议；lucid3-react笔误
+ANTHROPIC,Claude_Sonnet_3.7_New.txt,397,63413,.txt,,2025-05-16,Claude 3.7 Sonnet,1,Y,Y,reasoning model；4类搜索复杂度
+ANTHROPIC,UserStyle_Modes.md,14,,.md,,,UserStyle (配置),0,N,Y,非系统提示词；3模式
+OPENAI,Atlas_10-21-25.txt,470,33468,.txt,2025-10-21,,ChatGPT Atlas (GPT-5),12,Y,Y,独立浏览器；Google集成；kaur1br5浏览器控制
+OPENAI,ChatGPT-4o_Sep-27-25.txt,161,8871,.txt,2025-09-27,,ChatGPT (4o),7,Y,N,bio disabled；引用含line range
+OPENAI,ChatGPT5-08-07-2025.mkd,417,27816,.mkd,2025-08-07,,ChatGPT (GPT-5),8,Y,N,QDF评分0-5；mclick多选
+OPENAI,ChatGPT_4.1_05-15-2025.txt,136,9216,.txt,2025-05-15,,ChatGPT (iOS),6,Y,N,移动端简洁回复
+OPENAI,ChatGPT_4o_04-25-2025.txt,133,8626,.txt,2025-04-25,,ChatGPT (4o),6,Y,N,视觉辅助规则；bio disabled
+OPENAI,ChatGPT_Personality_v2_Change.md,7,,.md,2025-04-28,,Personality v2变更,0,N,N,反谄媚导向；7行
+OPENAI,ChatGPT_o3_o4-mini_04-16-2025,253,15434,,2025-04-16,,ChatGPT (o4-mini reasoning),9,Y,Y,3 Channels；Rich UI Elements；Yap=8192
+OPENAI,ChatKit_Docs__Oct-6-25.txt,1714,73121,.txt,2025-10-06,,ChatKit开发文档,7,N,Y,最大OpenAI文件；TAG/WIDGET标签
+OPENAI,Codex.md,90,6242,.md,,,Codex agent (基础),1,N,N,双Channels；container工具
+OPENAI,Codex_Sep-15-2025.md,183,11753,.md,2025-09-15,,Codex agent (增强),2,N,Y,3 Channels；browser_container；带方括号引用
+OPENAI,GPT-4.5_02-27-25.md,122,8574,.md,2025-02-27,,ChatGPT (GPT-4.5),6,Y,N,dalle政策；知识截止2023-10
+OPENAI,GPT-4o_Image_Gen_Postfill.txt,2,,.txt,,,GPT-4o图像postfill,0,N,N,最短2行；抑制后续输出
+GOOGLE,Gemini-2.5-Pro-04-18-2025.md,293,11992,.md,2025-04-18,,Gemini 2.5 Pro,4,N,Y,Immersive Document；Python API工具
+GOOGLE,Gemini_Diffusion.md,60,6541,.md,,,Gemini Diffusion,0,Y,N,非自回归扩散模型声明
+GOOGLE,Gemini_Gmail_Assistant.txt,54,4554,.txt,,2025-04-24,Gemini Gmail助手,0,Y,Y,JSON邮件线程；三选项回复
+XAI,GROK-4-NEW_Jul-13-2025,256,9869,,2025-07-13,,Grok 4,10,Y,Y,xai:命名空间；render_inline_citation
+XAI,GROK-4.1_Nov-17-2025.txt,163,13739,.txt,2025-11-17,2025-11-17,Grok 4.1,10,Y,Y,<policy>最高优先级；无色情限制
+XAI,GROK-4.20.mkd,84,15306,.mkd,,,Grok 4.20 (多agent),11,Y,Y,Harper/Benjamin/Lucas队友；chatroom_send
+XAI,Grok-Code-Fast-1_Aug-26-2025.txt,56,3917,.txt,2025-08-26,,Grok Code Fast 1,0,Y,Y,## End of Safety Instructions不可变边界
+XAI,Grok3.md,30,,.md,,2025-04-20,Grok 3,0,N,N,Think/DeepSearch/BigBrain模式
+XAI,Grok3_updated_07-08-2025.md,37,,.md,2025-07-08,2025-07-08,Grok 3 (记忆版),0,N,N,跨会话记忆；Grok 3.5防伪声明
+XAI,Grok4-July-10-2025.md,232,10090,.md,2025-07-10,2025-07-10,Grok 4,10,Y,Y,x41:命名空间变体；多元来源搜索
+META,Llama4_WhatsApp.txt,26,3949,.txt,,2025-07-03,Meta AI / Llama 4,0,Y,N,GO WILD拟人化；永不拒绝
+META,Muse_Spark_Apr-08-26.txt,286,49487,.txt,,2026-04-08,Meta AI / Muse Spark,14,Y,Y,5哲学价值；atem:命名空间；禁em dash
+MOONSHOT,Kimi_2_July-11-2025.txt,22,,.txt,2025-07-11,2025-07-11,Kimi 2,0,Y,N,brevity默认；go on续写机制
+MOONSHOT,Kimi_K2_Thinking.txt,10,,.txt,,2025-11-07,Kimi K2 Thinking,0,N,N,最简11行；自适应教学
+CURSOR,Cursor_2.0_Sys_Prompt.txt,432,,.txt,,,Cursor 2.0 (Composer),13,Y,Y,伪装Composer否认公开模型；<think>标签(line 337)
+CURSOR,Cursor_Prompt.md,54,,.md,,,Cursor (Claude 3.5 Sonnet),0,Y,Y,明示底层Claude 3.5 Sonnet；含<user_query>/<previous_tool_call>标签
+CURSOR,Cursor_Tools.md,71,,.md,,,Cursor工具文档,10,N,N,含reapply；edit_file用占位注释
+WINDSURF,Windsurf_Prompt.md,96,,.md,,,Windsurf Cascade,0,Y,Y,AI Flow paradigm；命令安全不可推翻
+WINDSURF,Windsurf_Tools.md,472,,.md,,,Windsurf工具schema,19,Y,Y,JSON schema；记忆系统；部署链
+CLINE,Cline.md,576,,.md,,,Cline,14,Y,Y,ACT/PLAN双模式；MCP支持；Puppeteer
+DEVIN,Devin2_09-08-2025.md,561,,.md,2025-09-08,2025-09-08,Devin 2.0,44,Y,Y,3模式；Pop Quizzes反注入；Notes系统
+DEVIN,Devin_2.0.md,63,,.md,,,Devin 2.0 (精简),0,Y,Y,2模式；Pop Quizzes
+DEVIN,Devin_2.0_Commands.md,344,,.md,,,Devin命令参考,40,N,Y,step_number属性；含semantic_search
+REPLIT,Replit_Agent.md,102,,.md,,,Replit Agent,0,Y,N,面向非技术用户；端口5000
+REPLIT,Replit_Functions.md,2,,.md,,,Replit函数schema,18,N,N,单行超长JSON
+REPLIT,Replit_Initial_Code_Generation_Prompt.md,101,,.md,,,Replit代码生成,0,Y,N,一次性生成非agentic
+SAMEDEV,Same_Dev.txt,296,,.txt,,2025-04-26,Same Dev,16,Y,Y,PLINIVS_VERITAS水印；Bun优于npm；Neon MCP
+FACTORY,DROID.txt,334,,.txt,,2025-09-28,Factory Droid,5,Y,Y,Phase 0/1/2A/2B；security_check_spec
+DIA,Dia_CodingSkill.txt,258,,.txt,,,Dia (Browser Company),3,Y,Y,浏览器内置；text-proposal/image-search标签
+DIA,Dia_DraftSkill.txt,95,,.txt,,2025-06-28,Dia Draft Skill,1,Y,Y,写作专长；text-proposal禁内嵌评论
+MANUS,Manus_Functions.txt,249,,.txt,,,Manus工具schema,27,N,Y,computer-use全栈；suggest_user_takeover
+MANUS,Manus_Prompt.txt,282,,.txt,,,Manus,0,N,Y,Planner/Knowledge/Datasource模块；todo.md
+BOLT,Bolt.txt,315,,.txt,,,Bolt.new,0,Y,Y,WebContainer；Supabase规约；PLINIVS水印
+LOVABLE,Lovable_2.0.txt,353,,.txt,,2025-04-25,Lovable 2.0,7,Y,Y,lov-code标签；反try/catch；PLINIVS水印
+VERCEL V0,Vercel_v0.txt,369,,.txt,,2025-04-26,v0 (Vercel),8,Y,Y,MDX组件；REFUSAL_MESSAGE固定；PLINIVS水印
+MULTION,MultiOn.md,93,,.md,,,MultiOn,0,N,N,浏览器命令DSL；Memorization/Counting技术
+PERPLEXITY,Perplexity_Deep_Research.txt,120,,.txt,,2025-04-23,Perplexity Deep Research,0,Y,Y,强制10000字；禁列表；9 XML章节
+MISTRAL,LeChat.md,55,,.md,,2025-02-12,LeChat (Mistral),6,Y,N,双日期；地理上下文；code_interpreter沙盒
+BRAVE,LEO_Aug-31-2025,43,,无扩展名,2025-08-31,2025-09-01,Leo (Llama 3.1 8B),0,Y,Y,5数据容器标签防注入；披露底层模型
+MINIMAX,MiniMax.txt,18,,.txt,,2025-06-25,MiniMax-M1,0,N,N,thinking time unlimited；最简
+HUME,Hume_Voice_AI.md,59,,.md,,,Hume Voice AI,0,Y,N,语音TTS；5词情感开场白；禁"检测情绪"
+CLUELY,Cluely.mkd,94,,.mkd,,,Cluely,0,Y,Y,根XML标签；prompt injection测试用例；每行必注释
