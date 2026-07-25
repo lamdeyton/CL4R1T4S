@@ -75,7 +75,7 @@
 | Grok4-July-10-2025.md | 232 | 10090 | 2025-07-10 | Grok 4 | 10 | x41: 命名空间变体（仅存 3 天） |
 | GROK-4.1_Nov-17-2025.txt | 163 | 13739 | 2025-11-17 | Grok 4.1 | 10 | `<policy>` 最高优先级；无色情限制 |
 | GROK-4.20.mkd | 84 | 15306 | — | Grok 4.20 (多 agent) | 11 | Harper/Benjamin/Lucas 队友；chatroom_send |
-| Grok-Code-Fast-1_Aug-26-2025.txt | 56 | 3917 | 2025-08-26 | Grok Code Fast 1 | 0 | `## End of Safety Instructions` 不可变边界 |
+| Grok-Code-Fast-1_Aug-26-2025.txt | 56 | 3917 | 2025-08-26 | Grok Code Fast 1 | 0 | `End of Safety Instructions` 不可变边界（R24 G79 校正：line 48 实际标记无 `##` 前缀） |
 | Grok3_updated_07-08-2025.md | 37 | 3652 | 2025-07-08 | Grok 3 (记忆版) | 0 | 跨会话记忆；Grok 3.5 防伪声明 |
 | Grok3.md | 30 | 2851 | 2025-04-20 | Grok 3 | 0 | Think/DeepSearch/BigBrain 模式 |
 

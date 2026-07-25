@@ -121,7 +121,7 @@ R7 审计共发现 **5 类 gap**：
 | has_safety = Y + has_xml = Y | 28 | 双字段逻辑自洽 | ✅ |
 | has_safety = N + has_xml = N | 5 | 双字段逻辑自洽 | ✅ |
 
-> **R20 G58 校正注记**：R7 抽样审计仅发现 Cursor_Prompt.md 1 处 has_xml 错误（G1）。R20 对全部 66 文件执行 has_xml 反向核对（全量 grep XML 角括号标签 + 花括号 `{tag}` 标签），发现额外 5 处 has_xml=Y 错误（实际应为 N）：① `UserStyle_Modes.md`（仅含 markdown `#` 标题）；② `ChatGPT_o3_o4-mini_04-16-2025`（"channel tag" 为概念非实际标签）；③ `Gemini_Gmail_Assistant.txt`（仅含转义 `\<example\>`）；④ `GROK-4.20.mkd`（仅含 markdown `##` + JSON）；⑤ `Grok-Code-Fast-1_Aug-26-2025.txt`（`## End of Safety Instructions` 为 markdown 边界非 XML 标签）。R20 已将这 5 文件的 has_xml 从 Y 修正为 N。修正后当前正确计数：xml=Y 共 38 文件，xml=N 共 28 文件。上表计数为 R7 时点值，仅含 G1 修复，未含 R20 G58 修复。
+> **R20 G58 校正注记**：R7 抽样审计仅发现 Cursor_Prompt.md 1 处 has_xml 错误（G1）。R20 对全部 66 文件执行 has_xml 反向核对（全量 grep XML 角括号标签 + 花括号 `{tag}` 标签），发现额外 5 处 has_xml=Y 错误（实际应为 N）：① `UserStyle_Modes.md`（仅含 markdown `#` 标题）；② `ChatGPT_o3_o4-mini_04-16-2025`（"channel tag" 为概念非实际标签）；③ `Gemini_Gmail_Assistant.txt`（仅含转义 `\<example\>`）；④ `GROK-4.20.mkd`（仅含 markdown `##` + JSON）；⑤ `Grok-Code-Fast-1_Aug-26-2025.txt`（`End of Safety Instructions` 为纯文本边界非 XML 标签，R24 G79 校正：line 48 实无 `##` 前缀，原 R20 描述误标 `##`）。R20 已将这 5 文件的 has_xml 从 Y 修正为 N。修正后当前正确计数：xml=Y 共 38 文件，xml=N 共 28 文件。上表计数为 R7 时点值，仅含 G1 修复，未含 R20 G58 修复。
 
 ### 2.3 水平审计发现
 
@@ -313,7 +313,7 @@ R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、�
 | `ANTHROPIC/Claude-Opus-4.7.txt` | ⚠️ notes 未明示 MCP |
 | `DEVIN/Devin2_09-08-2025.md` | ⚠️ notes 提"Notes系统"，未明示 MCP（但文件含 `## MCP Commands` 章节 + 4 个 MCP 命令） |
 
-**G5（续）** — 3 个 Anthropic/Devin 文件 grep 命中 MCP 但 inventory notes 未明示。R2 §A.3 表格"少数独有"项已明确"Cline（`CLINE/Cline.md:414` `# MCP SERVERS`）"，但 Devin2 的 MCP 章节未在 R2 单独强调。**未修复**，记录供 R8 补充。
+**G5（续）** — 3 个 Anthropic/Devin 文件 grep 命中 MCP 但 inventory notes 未明示。R2 §A.3 表格"少数独有"项已明确"Cline（`CLINE/Cline.md:415` `# MCP SERVERS`，R24 G74 校正：原 :414 指向锚点行）"，但 Devin2 的 MCP 章节未在 R2 单独强调。**未修复**，记录供 R8 补充。
 
 ### 4.6 特性 5：Computer Use
 
