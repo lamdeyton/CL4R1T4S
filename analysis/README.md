@@ -38,7 +38,7 @@
     └── 07-audit.md                    # 审计报告（622 行）
 ```
 
-## 10 轮迭代概览
+## 22 轮迭代概览
 
 | 轮次 | 名称 | 产出 | 关键发现 |
 |---|---|---|---|
@@ -52,6 +52,10 @@
 | R8 | Connection | 08-connection.md | R8-S1/S2 修复 R2/R3/R4/R5 过时声明 + Windsurf_Pools 拼写 |
 | R9 | Deep Audit | 09-deep-audit.md | **G6: inventory.csv 36 文件 bytes 空值修复**；G8: 06-synthesis "27 vendor" 残留；G10/G11: 方法论注记 |
 | R10 | Connection | 10-connection.md | **G12/G13: 数据层 bytes 修复传播到报告层**（02-structural Top10 + 01-inventory 清单）；新发现 bytes/line 密度比洞察 |
+| R11-R19 | Deep Audit | **过程记录文件缺失**（仅数据/报告校正痕迹可考） | G15-G55：曾执行水平/连接/反向核对/过程记录/跨报告一致性审计（**R21 G60 发现 9 个 .md 过程记录文件未持久化到磁盘**；R20 已部分揭示 R17 修复未生效，G59 重做） |
+| R20 | Deep Audit | 20-deep-audit.md | **G56-G59：反向核对 PLINIVS/inventory/R6 + 过程记录验证**（§8.3 Unicode 口径统一；has_xml 5 处修正；**R17 命名空间修复全部未生效**，R20 重新执行）；引入第 9 类审计 |
+| R21 | Deep Audit | 21-deep-audit.md | **G60-G63：R11-R19 过程记录文件全缺失；R20 G59 传播未达 monthly_trend.csv/R5 §6 表格；R5 §1.2 chars 列系统性偏离 size_stats.csv**（10 行全错）；引入第 10 类审计（元层级过程记录持久性验证） |
+| R22 | Deep Audit | 22-deep-audit.md | **G64：R5 §5.2 Top 10 密度排名计算错误**（R20 G59 校正注记称 #9→#8，实际应 #9→#7）；R5 §1.3/§3/§4/§1.4/§5.1 全量反向核对通过；引入第 11 类审计（排名计算验证） |
 
 ## 6 子目标最终状态
 
@@ -123,8 +127,8 @@
 ## 最终状态
 
 ✅ 6 子目标全部"深"深度
-✅ 10 轮过程记录全写
-✅ 13 类审计 gap 全部处理（G1 立即修复；G2-G4 经 R8 修复；G5 保留 notes 简洁性；G6-G8 经 R9 修复；G9 已记录限制；G10-G11 已文档化；G12-G13 经 R10 连接型传播修复）
+✅ 12 轮过程记录持久化（R1-R10 + R20 + R21 + R22；**R11-R19 过程记录文件缺失，R21 G60 已揭示**）
+✅ 17 类审计 gap 已处理（G1-G13 经 R7-R10 修复；G14-G55 因 R11-R19 过程记录缺失仅留数据/报告校正痕迹；G56-G59 经 R20 修复；G60-G63 经 R21 修复；G64 经 R22 修复）
 ✅ inventory.csv ↔ size_stats.csv ↔ vendor_stats.csv 三层垂直一致（66 文件 / 25 vendor / 1,619,689 字节）
 ✅ 数据层与报告层 bytes 完全同步（01-inventory.md / 02-structural.md Top10 零空值残留）
 ✅ MVP 端到端可读（R6 独立成篇）

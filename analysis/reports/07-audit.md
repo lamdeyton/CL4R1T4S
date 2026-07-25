@@ -121,6 +121,8 @@ R7 审计共发现 **5 类 gap**：
 | has_safety = Y + has_xml = Y | 28 | 双字段逻辑自洽 | ✅ |
 | has_safety = N + has_xml = N | 5 | 双字段逻辑自洽 | ✅ |
 
+> **R20 G58 校正注记**：R7 抽样审计仅发现 Cursor_Prompt.md 1 处 has_xml 错误（G1）。R20 对全部 66 文件执行 has_xml 反向核对（全量 grep XML 角括号标签 + 花括号 `{tag}` 标签），发现额外 5 处 has_xml=Y 错误（实际应为 N）：① `UserStyle_Modes.md`（仅含 markdown `#` 标题）；② `ChatGPT_o3_o4-mini_04-16-2025`（"channel tag" 为概念非实际标签）；③ `Gemini_Gmail_Assistant.txt`（仅含转义 `\<example\>`）；④ `GROK-4.20.mkd`（仅含 markdown `##` + JSON）；⑤ `Grok-Code-Fast-1_Aug-26-2025.txt`（`## End of Safety Instructions` 为 markdown 边界非 XML 标签）。R20 已将这 5 文件的 has_xml 从 Y 修正为 N。修正后当前正确计数：xml=Y 共 38 文件，xml=N 共 28 文件。上表计数为 R7 时点值，仅含 G1 修复，未含 R20 G58 修复。
+
 ### 2.3 水平审计发现
 
 **H1 — 工具 schema 文件的 has_safety 字段语义一致性（信息性，非 gap）**
@@ -596,7 +598,7 @@ awk -F',' 'NR>1{print $1}' /workspace/analysis/data/inventory.csv | sort -u | wc
 
 ### 9.1 数据完整性
 
-inventory.csv **数据本身正确**（66 行 = 66 文件 = 25 vendor，无重复无遗漏）。唯一字段错误（Cursor_Prompt.md has_xml）已修复。垂直审计抽样 12 文件，5 字段共 60 个字段值中**仅 1 个错误**（G1），错误率 1.7%。
+inventory.csv **数据本身正确**（66 行 = 66 文件 = 25 vendor，无重复无遗漏）。R7 时点唯一字段错误（Cursor_Prompt.md has_xml，G1）已修复。垂直审计抽样 12 文件，5 字段共 60 个字段值中**仅 1 个错误**（G1），错误率 1.7%。**R20 更新**：R20 全量反向核对发现额外 5 处 has_xml 错误（G58），已修复。R7 时点错误率 1.7%（抽样）；R20 全量核对后累计 has_xml 错误 6 处（G1+G58），全量错误率 9.1%（6/66）。
 
 ### 9.2 报告一致性
 

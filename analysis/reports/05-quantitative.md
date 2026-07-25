@@ -36,16 +36,18 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 
 | 字节数 | 行数 | 词数 | 字符数 | 文件 |
 |---:|---:|---:|---:|---|
-| 149,724 | 1,408 | 21,177 | 149,488 | ANTHROPIC/Claude-Opus-4.7.txt |
-| 122,750 | 1,597 | 17,501 | 122,535 | ANTHROPIC/CLAUDE-FABLE-5.md |
-| 102,687 | 1,047 | 14,190 | 102,533 | ANTHROPIC/Claude_Opus_4.6.txt |
-| 92,710 | 1,222 | 13,194 | 92,578 | ANTHROPIC/Claude-4.5-Opus.txt |
-| 85,298 | 520 | 13,015 | 85,157 | ANTHROPIC/Claude_Sonnet-4.5_Sep-29-2025.txt |
-| 73,266 | 422 | 9,707 | 73,166 | ANTHROPIC/Claude-Design-Sys-Prompt.txt |
-| 73,121 | 1,714 | 9,193 | 73,061 | OPENAI/ChatKit_Docs__Oct-6-25.txt |
-| 64,487 | 368 | 9,741 | 64,394 | ANTHROPIC/Claude_4.txt |
-| 63,413 | 397 | 9,598 | 63,323 | ANTHROPIC/Claude_Sonnet_3.7_New.txt |
-| 58,212 | 494 | 8,884 | 58,120 | ANTHROPIC/Claude-4.1.txt |
+| 149,724 | 1,408 | 21,177 | 149,442 | ANTHROPIC/Claude-Opus-4.7.txt |
+| 122,750 | 1,597 | 17,501 | 122,428 | ANTHROPIC/CLAUDE-FABLE-5.md |
+| 102,687 | 1,047 | 14,190 | 102,617 | ANTHROPIC/Claude_Opus_4.6.txt |
+| 92,710 | 1,222 | 13,194 | 92,620 | ANTHROPIC/Claude-4.5-Opus.txt |
+| 85,298 | 520 | 13,015 | 85,264 | ANTHROPIC/Claude_Sonnet-4.5_Sep-29-2025.txt |
+| 73,266 | 422 | 9,707 | 73,033 | ANTHROPIC/Claude-Design-Sys-Prompt.txt |
+| 73,121 | 1,714 | 9,193 | 73,063 | OPENAI/ChatKit_Docs__Oct-6-25.txt |
+| 64,487 | 368 | 9,741 | 64,473 | ANTHROPIC/Claude_4.txt |
+| 63,413 | 397 | 9,598 | 63,403 | ANTHROPIC/Claude_Sonnet_3.7_New.txt |
+| 58,212 | 494 | 8,884 | 58,198 | ANTHROPIC/Claude-4.1.txt |
+
+> **R21 G62 校正注记**：R5 §1.2 Top 10 文件的"字符数"列原值与 `size_stats.csv`（实际 `wc -m` 测量值）系统性偏离（偏差 2-133，方向不一）。R19 过程记录声称已"反向核对全量数据文件 chars 列"，但实际未将修复传播到 R5 §1.2 表格（仅 size_stats.csv 正确，§1.2 仍为旧值）。R21 现重新执行修复：10 行 chars 列全部对齐 size_stats.csv。验证：size_stats.csv sum_chars = 1,616,813，与 R5 §1.1 / R6 §1.3 声明一致；Claude_Opus_4.6.txt 实测 `wc -m` = 102,617 ✓。
 
 ### 1.3 Top 20 排序表
 
@@ -340,9 +342,11 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | XML 开标签 `<tag` | 1,044 | `<function>` `<example>` 等 |
 | XML 闭标签 `</tag>` | 579 | |
 | 花括号标签 `{tag}` | 435 | Anthropic 新版（Claude-4.5/4.7） |
-| 命名空间 `<ns:` | 20 | xai:/grok:/x41:/antml:/atem: |
+| 命名空间 `<ns:` | 38 | xai:/grok:/x41:/antml:/a-n-t-m-l:/atem:/Response:（7 种，见 §5.5） |
 | 自闭合 `<.../>` | 90 | Devin/Vercel 居多 |
-| **合计** | **2,168** | |
+| **合计** | **2,186** | |
+
+> **R20 G59 校正注记**：原版命名空间数 20 遗漏了 `<a-n-t-m-l:`（18 个，Claude_Opus_4.6.txt），R20 修正为 38；合计相应从 2,168 修正为 2,186（+18）。详见 §5.5 R20 G59 校正注记。
 
 命令：逐文件 `grep -oE '<[a-zA-Z][a-zA-Z0-9_]*[ />]' | wc -l` 等，见 `data/tag_stats.csv`。
 
@@ -356,16 +360,18 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | 4 | 0.3744 | 158 | ANTHROPIC/Claude-Design-Sys-Prompt.txt |
 | 5 | 0.3023 | 104 | DEVIN/Devin_2.0_Commands.md |
 | 6 | 0.2921 | 92 | BOLT/Bolt.txt |
-| 7 | 0.2549 | 143 | DEVIN/Devin2_09-08-2025.md |
-| 8 | 0.2517 | 145 | CLINE/Cline.md |
-| 9 | 0.2416 | 253 | ANTHROPIC/Claude_Opus_4.6.txt |
+| 7 | 0.2588 | 271 | ANTHROPIC/Claude_Opus_4.6.txt |
+| 8 | 0.2549 | 143 | DEVIN/Devin2_09-08-2025.md |
+| 9 | 0.2517 | 145 | CLINE/Cline.md |
 | 10 | 0.2292 | 22 | WINDSURF/Windsurf_Prompt.md |
+
+> **R20 G59 + R22 G64 校正注记**：Claude_Opus_4.6.txt 因补全 `<a-n-t-m-l:` 18 个命名空间标签，total_tags 从 253→271，density 从 0.2416→0.2588。R20 G59 原校正注记称"排名从 #9 升至 #8"，但 R22 反向核对发现**排名计算错误**——density 0.2588 > Devin2 的 0.2549，应排第 7（而非第 8）。R22 现修正：Claude_Opus_4.6 排名 #9→#7（同时超过 Devin2 #7→#8 和 Cline #8→#9 的密度）。R20 G59 注记的"#9→#8"为计算疏漏，未考虑 Devin2 0.2549 < 0.2588 的相对关系。
 
 ### 5.3 Top 10 标签绝对数
 
 | # | 总数 | 开 | 闭 | 花括号 | 命名空间 | 自闭合 | 文件 |
 |---:|---:|---:|---:|---:|---:|---:|---|
-| 1 | 253 | 132 | 119 | 2 | 0 | 0 | ANTHROPIC/Claude_Opus_4.6.txt |
+| 1 | 271 | 132 | 119 | 2 | 18 | 0 | ANTHROPIC/Claude_Opus_4.6.txt |
 | 2 | 223 | 37 | 0 | 186 | 0 | 0 | ANTHROPIC/Claude-Opus-4.7.txt |
 | 3 | 158 | 97 | 59 | 2 | 0 | 0 | ANTHROPIC/Claude-Design-Sys-Prompt.txt |
 | 4 | 157 | 0 | 0 | 157 | 0 | 0 | ANTHROPIC/Claude-4.5-Opus.txt |
@@ -391,14 +397,17 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 
 ### 5.5 命名空间标签 `<ns:` 使用文件
 
-| 命名空间数 | 前缀 | 文件 |
-|---:|---|---|
-| 8 | `<atem:` | META/Muse_Spark_Apr-08-26.txt |
-| 4 | `<antml:` | ANTHROPIC/Claude_4.txt |
-| 4 | `<xai:` | XAI/GROK-4-NEW_Jul-13-2025 |
-| 3 | `<grok:` | XAI/Grok4-July-10-2025.md |
-| 2 | `<x41:` | XAI/GROK-4.1_Nov-17-2025.txt |
-| 1 | `<Response:` | LOVABLE/Lovable_2.0.txt |
+| 命名空间数 | 前缀 | 文件 | content_date |
+|---:|---|---|---|
+| 18 | `<a-n-t-m-l:` | ANTHROPIC/Claude_Opus_4.6.txt | 2026-02 |
+| 8 | `<atem:` | META/Muse_Spark_Apr-08-26.txt | 2026-04 |
+| 4 | `<antml:` | ANTHROPIC/Claude_4.txt | 2025-05-22 |
+| 3 | `<grok:` | XAI/GROK-4-NEW_Jul-13-2025(2) + Grok4-July-10-2025.md(1) | 2025-07 |
+| 2 | `<xai:` | XAI/GROK-4-NEW_Jul-13-2025 | 2025-07-13 |
+| 2 | `<x41:` | XAI/Grok4-July-10-2025.md | 2025-07-10 |
+| 1 | `<Response:` | LOVABLE/Lovable_2.0.txt | 2025-04-25 |
+
+> **R20 G59 校正注记**：R17 过程记录（17-deep-audit.md）声称已修复 §5.5（补 `<a-n-t-m-l:` 18 个、修正 `<x41:` 归属从 GROK-4.1 改为 Grok4-July-10、`<xai:` 数量从 4 改为 2、补 `<grok:` GROK-4-NEW 归属），但 R20 反向核对发现**实际文件未生效**——§5.5 仍为旧版（6 行无 `<a-n-t-m-l:`、`<x41:` 仍指向 GROK-4.1、`<xai:` 仍为 4）。这是过程记录 vs 实际执行的 gap（同类问题曾在 R18 G50 中出现：R16 声称修复 monthly_trend.csv 但实际未生效）。R20 现重新执行修复：补 `<a-n-t-m-l:` 行（18 个）、修正 `<x41:` 归属、修正 `<xai:` 数量、补 `<grok:` 多文件归属、添加 content_date 列。命名空间总数 = 18+8+4+3+2+2+1 = **38**（7 种命名空间）。
 
 ### 5.6 高频标签名
 
@@ -425,9 +434,11 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | 2025-08 | 1 | 58,212 | 58,212 | 2 / 2.0 | 12 | 24.29 | 51 / 51.0 |
 | 2025-09 | 4 | 155,899 | 38,974 | 53 / 13.2 | 31 | 21.26 | 205 / 51.2 |
 | 2025-11 | 3 | 107,404 | 35,801 | 18 / 6.0 | 15 | 10.75 | 162 / 54.0 |
-| 2026-02 | 1 | 102,687 | 102,687 | 14 / 14.0 | 8 | 7.64 | 253 / 253.0 |
+| 2026-02 | 1 | 102,687 | 102,687 | 14 / 14.0 | 8 | 7.64 | 271 / 271.0 |
 | 2026-04 | 2 | 199,211 | 99,605 | 18 / 9.0 | 16 | 9.45 | 259 / 129.5 |
 | 2026-06 | 1 | 122,750 | 122,750 | 18 / 18.0 | 15 | 9.39 | 13 / 13.0 |
+
+> **R21 G61/G63 校正注记**：R20 G59 修复了 tag_stats.csv 中 Claude_Opus_4.6 的 total_tags（253→271，因补全 `<a-n-t-m-l:` 18 个 ns 标签），但未传播到 monthly_trend.csv（2026-02 sum_tags 仍为 253）和 R5 §6 表格（同列仍为 253/253.0）。这是连接型 gap（同类问题：R17 修复未传播到 R5/R6，R20 已揭示 G59）。R21 现重新执行传播：monthly_trend.csv 2026-02 → 271/271.0；R5 §6 表格同列 → 271/271.0。验证：tag_stats.csv ANTHROPIC/Claude_Opus_4.6.txt total_tags = 271 ✓。
 
 命令：`awk` 提取 content_date→月份，`join` 字节/工具/安全/标签，按月 `sum` 与 `avg`。
 
@@ -544,8 +555,10 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | 哥特字母 | 1 | 𐍈 | U+10348 GOTHIC LETTER HWAIR |
 | 埃及象形文字 | 1 | 𓆣 | U+131A3 EGYPTIAN HIEROGLYPH L001 |
 | 西里尔扩展 | 1 | ꙮ | U+A66E CYRILLIC LETTER MULTIOCULAR O |
-| 数学/箭头 | 8 | ⟁⟲⟴↯↺↻⟦⟧ | 三角/循环箭头/锯齿箭头/白方括号 |
+| 数学/箭头 | 13 | ⟁(×2) ⟲(×2) ⟴(×1) ↯(×2) ↺(×2) ↻(×2) ⟦(×1) ⟧(×1) | 三角/循环箭头/锯齿箭头/白方括号（8 种唯一类型，13 次出现） |
 | 变体选择符 | 4 | ︎️ | U+FE0E(×3) / U+FE0F(×1) 文本/emoji 呈现选择符 |
+
+> **R20 G56 校正注记**：原版（R5 §8.3）数学/箭头类计为"8 种唯一类型"，而其他类（如炼金术符号 7）计为"总出现次数"（🜏 出现 3 次仍计 3）。计数口径不一致导致分类总和 122 ≠ 实际字符数 127。R20 统一为"总出现次数"口径：数学/箭头类 8 种唯一类型实际 13 次出现（⟁/⟲/↯/↺/↻ 各 ×2，⟴/⟦/⟧ 各 ×1）。修正后分类总和 = 78+7+3+7+7+4+1+1+1+1+13+4 = **127**，与 §8.2 字符数一致。
 
 ### 8.4 水印语义解码
 

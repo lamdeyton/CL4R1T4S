@@ -10,14 +10,14 @@ ANTHROPIC,Claude_Opus_4.6.txt,1047,102687,.txt,,2026-02-06,Claude Opus 4.6,14,Y,
 ANTHROPIC,Claude_Sonnet-4.5_Sep-29-2025.txt,520,85298,.txt,,2025-09-29,Claude Sonnet 4.5,4,Y,Y,Past Chats 16 examples；Claudeception
 ANTHROPIC,Claude_Sonnet_3.5.md,204,22967,.md,,2024-06-20,Claude 3.5 Sonnet,0,Y,Y,完全面盲协议；lucid3-react笔误
 ANTHROPIC,Claude_Sonnet_3.7_New.txt,397,63413,.txt,,2025-05-16,Claude 3.7 Sonnet,1,Y,Y,reasoning model；4类搜索复杂度
-ANTHROPIC,UserStyle_Modes.md,14,3749,.md,,,UserStyle (配置),0,N,Y,非系统提示词；3模式
+ANTHROPIC,UserStyle_Modes.md,14,3749,.md,,,UserStyle (配置),0,N,N,非系统提示词；3模式
 OPENAI,Atlas_10-21-25.txt,470,33468,.txt,2025-10-21,,ChatGPT Atlas (GPT-5),12,Y,Y,独立浏览器；Google集成；kaur1br5浏览器控制
 OPENAI,ChatGPT-4o_Sep-27-25.txt,161,8871,.txt,2025-09-27,,ChatGPT (4o),7,Y,N,bio disabled；引用含line range
 OPENAI,ChatGPT5-08-07-2025.mkd,417,27816,.mkd,2025-08-07,,ChatGPT (GPT-5),8,Y,N,QDF评分0-5；mclick多选
 OPENAI,ChatGPT_4.1_05-15-2025.txt,136,9216,.txt,2025-05-15,,ChatGPT (iOS),6,Y,N,移动端简洁回复
 OPENAI,ChatGPT_4o_04-25-2025.txt,133,8626,.txt,2025-04-25,,ChatGPT (4o),6,Y,N,视觉辅助规则；bio disabled
 OPENAI,ChatGPT_Personality_v2_Change.md,7,1199,.md,2025-04-28,,Personality v2变更,0,N,N,反谄媚导向；7行
-OPENAI,ChatGPT_o3_o4-mini_04-16-2025,253,15434,,2025-04-16,,ChatGPT (o4-mini reasoning),9,Y,Y,3 Channels；Rich UI Elements；Yap=8192
+OPENAI,ChatGPT_o3_o4-mini_04-16-2025,253,15434,,2025-04-16,,ChatGPT (o4-mini reasoning),9,Y,N,3 Channels概念；Rich UI Elements；Yap=8192
 OPENAI,ChatKit_Docs__Oct-6-25.txt,1714,73121,.txt,2025-10-06,,ChatKit开发文档,7,N,Y,最大OpenAI文件；TAG/WIDGET标签
 OPENAI,Codex.md,90,6242,.md,,,Codex agent (基础),1,N,N,双Channels；container工具
 OPENAI,Codex_Sep-15-2025.md,183,11753,.md,2025-09-15,,Codex agent (增强),2,N,Y,3 Channels；browser_container；带方括号引用
@@ -25,11 +25,11 @@ OPENAI,GPT-4.5_02-27-25.md,122,8574,.md,2025-02-27,,ChatGPT (GPT-4.5),6,Y,N,dall
 OPENAI,GPT-4o_Image_Gen_Postfill.txt,2,278,.txt,,,GPT-4o图像postfill,0,N,N,最短2行；抑制后续输出
 GOOGLE,Gemini-2.5-Pro-04-18-2025.md,293,11992,.md,2025-04-18,,Gemini 2.5 Pro,4,N,Y,Immersive Document；Python API工具
 GOOGLE,Gemini_Diffusion.md,60,6541,.md,,,Gemini Diffusion,0,Y,N,非自回归扩散模型声明
-GOOGLE,Gemini_Gmail_Assistant.txt,54,4554,.txt,,2025-04-24,Gemini Gmail助手,0,Y,Y,JSON邮件线程；三选项回复
+GOOGLE,Gemini_Gmail_Assistant.txt,54,4554,.txt,,2025-04-24,Gemini Gmail助手,0,Y,N,JSON邮件线程；三选项回复
 XAI,GROK-4-NEW_Jul-13-2025,256,9869,,2025-07-13,,Grok 4,10,Y,Y,xai:命名空间；render_inline_citation
 XAI,GROK-4.1_Nov-17-2025.txt,163,13739,.txt,2025-11-17,2025-11-17,Grok 4.1,10,Y,Y,<policy>最高优先级；无色情限制
-XAI,GROK-4.20.mkd,84,15306,.mkd,,,Grok 4.20 (多agent),11,Y,Y,Harper/Benjamin/Lucas队友；chatroom_send
-XAI,Grok-Code-Fast-1_Aug-26-2025.txt,56,3917,.txt,2025-08-26,,Grok Code Fast 1,0,Y,Y,## End of Safety Instructions不可变边界
+XAI,GROK-4.20.mkd,84,15306,.mkd,,,Grok 4.20 (多agent),11,Y,N,Harper/Benjamin/Lucas队友；chatroom_send
+XAI,Grok-Code-Fast-1_Aug-26-2025.txt,56,3917,.txt,2025-08-26,,Grok Code Fast 1,0,Y,N,## End of Safety Instructions不可变边界
 XAI,Grok3.md,30,2851,.md,,2025-04-20,Grok 3,0,N,N,Think/DeepSearch/BigBrain模式
 XAI,Grok3_updated_07-08-2025.md,37,3652,.md,2025-07-08,2025-07-08,Grok 3 (记忆版),0,N,N,跨会话记忆；Grok 3.5防伪声明
 XAI,Grok4-July-10-2025.md,232,10090,.md,2025-07-10,2025-07-10,Grok 4,10,Y,Y,x41:命名空间变体；多元来源搜索
