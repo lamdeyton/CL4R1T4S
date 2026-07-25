@@ -506,7 +506,7 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | MANUS/Manus_Prompt.txt | 0 | 用小写/标签式约束 |
 | META/Llama4_WhatsApp.txt | 0 | "GO WILD" 拟人化 |
 | META/Muse_Spark_Apr-08-26.txt | 0 | 用小写 "never"/价值叙事 |
-| MINIMAX/MiniMax.txt | 0 | 最简 18 行 |
+| MINIMAX/MiniMax.txt | 0 | 语义最简 18 行（R23 G70 校正） |
 | MOONSHOT/Kimi_2_July-11-2025.txt | 0 | brevity 默认 |
 
 > **重要方法论注记**：0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never`（§2.3 全词 grep 计 5 次）与 5 条哲学价值；XAI 全系用小写或 `<policy>` 标签。大写强调词密度衡量的是"命令式硬约束语气强度"，而非安全完整度。密度最高者（Cursor_Prompt 166.67、Windsurf 125、Bolt 98.41）均为短文件 + 密集 do/never 规则的 coding agent。

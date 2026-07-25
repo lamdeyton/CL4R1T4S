@@ -236,7 +236,7 @@ R2 §E 列出 9 类思考模式标记，R4 §1.1 揭示头部 5 厂商的思考�
 
 ## 2.8 趋势 8 — 垂直场景的极简 vs 极繁：MiniMax 18 行 vs Claude Fable 5 1597 行
 
-R3 §5.1 显示垂直场景的体量极差：MiniMax 18 行（最简，仅 `thinking time is unlimited`）vs Perplexity 120 行（强制 10000 字 + 禁列表 + formal academic prose）vs Claude Fable 5 1597 行（最大，9 Skills + MCP Apps + 持久存储）。R4 §5.2 深度解读："**输出长度不是'风格选择'，而是'场景刚需'**"——学术研究需要详尽（10000 字），语音对话需要简洁（Hume 禁 Markdown 因语音无法读），推理模型需要思考空间（MiniMax thinking time unlimited），通用对话需要 brevity（Kimi）。
+R4 §5.1 显示垂直场景的体量极差：MiniMax 18 行（语义最简，仅 `thinking time is unlimited`，R23 G70 校正）vs Perplexity 120 行（强制 10000 字 + 禁列表 + formal academic prose）vs Claude Fable 5 1597 行（最大，9 Skills + MCP Apps + 持久存储）。R4 §5.2 深度解读："**输出长度不是'风格选择'，而是'场景刚需'**"——学术研究需要详尽（10000 字），语音对话需要简洁（Hume 禁 Markdown 因语音无法读），推理模型需要思考空间（MiniMax thinking time unlimited），通用对话需要 brevity（Kimi）。（R23 G73 校正：原版误标"R3 §5.1"，R3 无 §5 章节，实际内容在 R4 §5.1）
 
 **两种范式有效性对比**：
 

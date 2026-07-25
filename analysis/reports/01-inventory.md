@@ -99,7 +99,7 @@
 | 文件 | 行数 | 字节 | 日期 | 模型 | 工具数 | 显著特征 |
 |---|---|---|---|---|---|---|
 | Kimi_2_July-11-2025.txt | 22 | 1420 | 2025-07-11 | Kimi 2 | 0 | brevity 默认；go on 续写机制 |
-| Kimi_K2_Thinking.txt | 10 | 955 | 2025-11-07 | Kimi K2 Thinking | 0 | 最简 11 行；自适应教学 |
+| Kimi_K2_Thinking.txt | 10 | 955 | 2025-11-07 | Kimi K2 Thinking | 0 | 6 项核心指令；自适应教学（R23 G71 校正：原"最简 11 行"与 wc -l=10 不一致，末行无换行符致 cat -n=11） |
 
 ---
 
@@ -244,7 +244,7 @@
 
 | 文件 | 行数 | 字节 | 日期 | 模型 | 工具数 | 显著特征 |
 |---|---|---|---|---|---|---|
-| MiniMax.txt | 18 | 2495 | 2025-06-25 | MiniMax-M1 | 0 | thinking time unlimited；最简 |
+| MiniMax.txt | 18 | 2495 | 2025-06-25 | MiniMax-M1 | 0 | thinking time unlimited；语义最简（R23 G70 校正：统一"最简"=语义最简=MiniMax，与 Kimi_K2_Thinking 行数"最短"区分） |
 
 ---
 

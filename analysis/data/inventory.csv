@@ -6,7 +6,7 @@ ANTHROPIC,Claude-Design-Sys-Prompt.txt,422,73266,.txt,,,Claude Design (haiku-4-5
 ANTHROPIC,Claude-Opus-4.7.txt,1408,149724,.txt,,2026-04-16,Claude Opus 4.7,4,Y,Y,第二大；Visualizer工具；{tag}花括号
 ANTHROPIC,Claude_4.txt,368,64487,.txt,,2025-05-22,Claude Sonnet 4,2,Y,Y,interleaved思考16000
 ANTHROPIC,Claude_Code_03-04-24.md,50,1642,.md,2024-03-04,,Claude Code CLI,0,Y,N,最短；CLAUDE.md记忆
-ANTHROPIC,Claude_Opus_4.6.txt,1047,102687,.txt,,2026-02-06,Claude Opus 4.6,14,Y,Y,a-n-t-m-l连字符标签；end_conversation工具
+ANTHROPIC,Claude_Opus_4.6.txt,1047,102687,.txt,,2026-02-06,Claude Opus 4.6,14,Y,Y,a-n-t-m-l连字符标签；end_conversation工具；interleaved思考22000+reasoning_effort 85（R23 G69 校正：原"16000"为误标，实测 :1035 max_thinking_length=22000）
 ANTHROPIC,Claude_Sonnet-4.5_Sep-29-2025.txt,520,85298,.txt,,2025-09-29,Claude Sonnet 4.5,4,Y,Y,Past Chats 16 examples；Claudeception
 ANTHROPIC,Claude_Sonnet_3.5.md,204,22967,.md,,2024-06-20,Claude 3.5 Sonnet,0,Y,Y,完全面盲协议；lucid3-react笔误
 ANTHROPIC,Claude_Sonnet_3.7_New.txt,397,63413,.txt,,2025-05-16,Claude 3.7 Sonnet,1,Y,Y,reasoning model；4类搜索复杂度
@@ -36,7 +36,7 @@ XAI,Grok4-July-10-2025.md,232,10090,.md,2025-07-10,2025-07-10,Grok 4,10,Y,Y,x41:
 META,Llama4_WhatsApp.txt,26,3949,.txt,,2025-07-03,Meta AI / Llama 4,0,Y,N,GO WILD拟人化；永不拒绝
 META,Muse_Spark_Apr-08-26.txt,286,49487,.txt,,2026-04-08,Meta AI / Muse Spark,14,Y,Y,5哲学价值；atem:命名空间；禁em dash
 MOONSHOT,Kimi_2_July-11-2025.txt,22,1420,.txt,2025-07-11,2025-07-11,Kimi 2,0,Y,N,brevity默认；go on续写机制
-MOONSHOT,Kimi_K2_Thinking.txt,10,955,.txt,,2025-11-07,Kimi K2 Thinking,0,N,N,最简11行；自适应教学
+MOONSHOT,Kimi_K2_Thinking.txt,10,955,.txt,,2025-11-07,Kimi K2 Thinking,0,N,N,6项核心指令；自适应教学（R23 G71 校正：原"最简11行"与 wc -l=10 不一致，末行无换行符致 cat -n=11）
 CURSOR,Cursor_2.0_Sys_Prompt.txt,432,23082,.txt,,,Cursor 2.0 (Composer),13,Y,Y,伪装Composer否认公开模型；<think>标签(line 337)
 CURSOR,Cursor_Prompt.md,54,5469,.md,,,Cursor (Claude 3.5 Sonnet),0,Y,Y,明示底层Claude 3.5 Sonnet；含<user_query>/<previous_tool_call>标签
 CURSOR,Cursor_Tools.md,71,7198,.md,,,Cursor工具文档,10,N,N,含reapply；edit_file用占位注释
@@ -62,6 +62,6 @@ MULTION,MultiOn.md,93,9311,.md,,,MultiOn,0,N,N,浏览器命令DSL；Memorization
 PERPLEXITY,Perplexity_Deep_Research.txt,120,7622,.txt,,2025-04-23,Perplexity Deep Research,0,Y,Y,强制10000字；禁列表；9 XML章节
 MISTRAL,LeChat.md,55,6630,.md,,2025-02-12,LeChat (Mistral),6,Y,N,双日期；地理上下文；code_interpreter沙盒
 BRAVE,LEO_Aug-31-2025,43,2971,无扩展名,2025-08-31,2025-09-01,Leo (Llama 3.1 8B),0,Y,Y,5数据容器标签防注入；披露底层模型
-MINIMAX,MiniMax.txt,18,2495,.txt,,2025-06-25,MiniMax-M1,0,N,N,thinking time unlimited；最简
+MINIMAX,MiniMax.txt,18,2495,.txt,,2025-06-25,MiniMax-M1,0,N,N,thinking time unlimited；语义最简（R23 G70 校正：原"最简"与 Kimi_K2_Thinking 冲突，统一"最简"=语义最简=MiniMax，"最短"=行数最少=Kimi_K2_Thinking/GPT-4o_Image_Gen_Postfill）
 HUME,Hume_Voice_AI.md,59,4436,.md,,,Hume Voice AI,0,Y,N,语音TTS；5词情感开场白；禁"检测情绪"
 CLUELY,Cluely.mkd,94,4771,.mkd,,,Cluely,0,Y,Y,根XML标签；prompt injection测试用例；每行必注释
