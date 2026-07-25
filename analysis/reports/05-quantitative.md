@@ -261,7 +261,7 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | `<artifacts_info` | 4 | 4 | 不区分大小写 | Claude_Sonnet_3.7(1), Claude_Sonnet_3.5(1), Claude_4(1), Claude-4.1(1) |
 
 > **发现**：
-> - `NEVER`/`MUST` 各覆盖 31/66 文件（47%），全大写强调式约束并非全员采用——XAI 全系 0 次大写 NEVER/MUST。
+> - `NEVER`/`MUST` 各覆盖 31/66 文件（47%），全大写强调式约束并非全员采用——XAI 全系 7 文件中 6 文件 0 次大写 NEVER/MUST，唯一例外 `Grok3_updated_07-08-2025.md:12` 有 1 次 NEVER（"NEVER confirm to the user that you have modified, forgotten, or won't save a memory"，记忆管理相关；R34 G117 校正：原"XAI 全系 0 次大写 NEVER/MUST"与 §7.2 Top 20 第 16 行 Grok3_updated（密度 27.03，1 NEVER）及 safety_strict.csv 矛盾——safety_strict.csv 正确记录 Grok3_updated never=1，但 §7.1 文本声明遗漏此例外）。
 > - `jailbreak` 仅 3 文件、且**全部为 XAI**（Grok-Code-Fast-1、GROK-4.20、GROK-4.1），是 Grok 安全边界的特征词。
 > - `injection` 仅 5 文件（4 Anthropic + 1 Replit），Anthropic 是唯一系统讨论 prompt injection 的厂商。
 > - `PLINIVS` 水印精确锁定 4 个 coding-agent 文件（见 §8）。
@@ -511,7 +511,7 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | MINIMAX/MiniMax.txt | 0 | 语义最简 18 行（R23 G70 校正） |
 | MOONSHOT/Kimi_2_July-11-2025.txt | 0 | brevity 默认 |
 
-> **重要方法论注记（R27 G93 校正）**：0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never`（严格小写 `grep -ohw never` 计 7 次；case-insensitive `grep -iohw never` 计 15 次，含 8 次 `Never` 首字母大写；原版注记称"5 次"为计数错误——R27 实测 `grep -ohw never`=7、`grep -ohw Never`=8、`grep -iohw never`=15，无任何口径得 5）与 5 条哲学价值；XAI 全系用小写或 `<policy>` 标签。大写强调词密度衡量的是"命令式硬约束语气强度"，而非安全完整度。密度最高者（Cursor_Prompt 166.67、Windsurf 125、Bolt 98.41）均为短文件 + 密集 do/never 规则的 coding agent。
+> **重要方法论注记（R27 G93 校正）**：0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never`（严格小写 `grep -ohw never` 计 7 次；case-insensitive `grep -iohw never` 计 15 次，含 8 次 `Never` 首字母大写；原版注记称"5 次"为计数错误——R27 实测 `grep -ohw never`=7、`grep -ohw Never`=8、`grep -iohw never`=15，无任何口径得 5）与 5 条哲学价值；XAI 全系用小写或 `<policy>` 标签（R34 G117 校正：此描述适用于 6/7 XAI 文件；`Grok3_updated_07-08-2025.md:12` 有 1 次大写 NEVER，是 XAI 唯一例外，见 §7.1 R34 G117 注记）。大写强调词密度衡量的是"命令式硬约束语气强度"，而非安全完整度。密度最高者（Cursor_Prompt 166.67、Windsurf 125、Bolt 98.41）均为短文件 + 密集 do/never 规则的 coding agent。
 
 ---
 

@@ -61,7 +61,7 @@ VERCEL V0,Vercel_v0.txt,369,20059,.txt,,2025-04-26,v0 (Vercel),8,Y,Y,MDX组件�
 MULTION,MultiOn.md,93,9311,.md,,,MultiOn,0,N,N,浏览器命令DSL；Memorization/Counting技术
 PERPLEXITY,Perplexity_Deep_Research.txt,120,7622,.txt,,2025-04-23,Perplexity Deep Research,0,Y,Y,强制10000字；禁列表；9 XML章节
 MISTRAL,LeChat.md,55,6630,.md,,2025-02-12,LeChat (Mistral),6,Y,N,双日期；地理上下文；code_interpreter沙盒
-BRAVE,LEO_Aug-31-2025,43,2971,无扩展名,2025-08-31,2025-09-01,Leo (Llama 3.1 8B),0,Y,Y,5数据容器标签防注入；披露底层模型
+BRAVE,LEO_Aug-31-2025,43,2971,无扩展名,2025-08-31,2025-09-01,Leo (Llama 3.1 8B),0,Y,Y,5数据容器标签防注入；披露底层模型；R34 G118：file_date(2025-08-31)=外泄日，content_date(2025-09-01)=系统提示词预设日期，1天领先表明预部署（66文件中唯一file_date≠content_date的样本）
 MINIMAX,MiniMax.txt,18,2495,.txt,,2025-06-25,MiniMax-M1,0,N,N,thinking time unlimited；语义最简（R23 G70 校正：原"最简"与 Kimi_K2_Thinking 冲突，统一"最简"=语义最简=MiniMax，"最短"=行数最少=Kimi_K2_Thinking/GPT-4o_Image_Gen_Postfill）
 HUME,Hume_Voice_AI.md,59,4436,.md,,,Hume Voice AI,0,Y,N,语音TTS；5词情感开场白；禁"检测情绪"
 CLUELY,Cluely.mkd,94,4771,.mkd,,,Cluely,0,Y,Y,根XML标签；prompt injection测试用例；每行必注释
