@@ -53,8 +53,8 @@ SAMEDEV,Same_Dev.txt,296,22145,.txt,,2025-04-26,Same Dev,16,Y,Y,PLINIVS_VERITAS�
 FACTORY,DROID.txt,334,16815,.txt,,2025-09-28,Factory Droid,5,Y,Y,Phase 0/1/2A/2B；security_check_spec
 DIA,Dia_CodingSkill.txt,258,21506,.txt,,,Dia (Browser Company),3,Y,Y,浏览器内置；text-proposal/image-search标签
 DIA,Dia_DraftSkill.txt,95,9088,.txt,,2025-06-28,Dia Draft Skill,1,Y,Y,写作专长；text-proposal禁内嵌评论
-MANUS,Manus_Functions.txt,249,25950,.txt,,,Manus工具schema,27,N,Y,computer-use全栈；suggest_user_takeover
-MANUS,Manus_Prompt.txt,282,13972,.txt,,,Manus,0,N,Y,Planner/Knowledge/Datasource模块；todo.md
+MANUS,Manus_Functions.txt,249,25950,.txt,,,Manus工具schema,27,N,Y,computer-use全栈；suggest_user_takeover；R36 第25类审计：tools_count=27 含 22 个 JSON 工具（Manus_Functions.txt 内 "name":字段）+ 5 个模块化工具（Manus_Prompt.txt 的 Planner/Knowledge/Datasource/todo_manager/knowledge_search），跨文件合并口径
+MANUS,Manus_Prompt.txt,282,13972,.txt,,,Manus,0,N,Y,Planner/Knowledge/Datasource模块；todo.md；R36 第25类审计：本文件含 5 个模块化工具描述（非 JSON 形式），归入 Manus_Functions.txt 的 tools_count=27 合并口径
 BOLT,Bolt.txt,315,16190,.txt,,,Bolt.new,0,Y,Y,WebContainer；Supabase规约；PLINIVS水印
 LOVABLE,Lovable_2.0.txt,353,16704,.txt,,2025-04-25,Lovable 2.0,7,Y,Y,lov-code标签；反try/catch；PLINIVS水印
 VERCEL V0,Vercel_v0.txt,369,20059,.txt,,2025-04-26,v0 (Vercel),8,Y,Y,MDX组件；REFUSAL_MESSAGE固定；PLINIVS水印

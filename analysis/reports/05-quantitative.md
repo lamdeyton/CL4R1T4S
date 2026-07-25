@@ -281,6 +281,18 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 
 命令：`awk -F',' 'NR>1 && $9!="" && $9!="0" {tc=$9; gsub(/[^0-9]/,"",tc); ...}' inventory.csv`
 
+> **R36 第25类审计方法论注记**：`tools_count` 字段在 6 种工具定义格式下采用**多模式口径**计数，并非单一 JSON `"name":` 字段。具体口径按厂商分：
+> - **Anthropic Fable 5+**：`### <tool_name>` 节点数（如 CLAUDE-FABLE-5.md=18）
+> - **Anthropic Claude 4.x**：`<invoke name=>` + 文本工具节（如 Claude_4.txt=2 含 repl + web_search）
+> - **OpenAI ChatGPT**：`namespace` + 顶级 `##` 工具节（如 ChatGPT5=8）
+> - **OpenAI Codex**：**按 namespace 计**（如 Codex.md=1，namespace container 内含 3 个 type 但计为 1）
+> - **xAI Grok**：`Action:` + `**Action:**` 两种变体相加（如 Grok4-July-10=10）
+> - **Devin**：XML `<tag>` 唯一标签去重（如 Devin2=44）
+> - **JSON Schema 文件**：`"name":` 字段数（如 Windsurf_Tools=19）
+> - **MANUS/Manus_Functions.txt=27**：跨文件合并口径 = 22 个 JSON 工具（Manus_Functions.txt）+ 5 个模块化工具（Manus_Prompt.txt 的 Planner/Knowledge/Datasource/todo_manager/knowledge_search）
+>
+> R36 多模式扫描验证：40/40 含工具文件在适当口径下声明值与实测一致，准确率 100%。详见 R36 第25类审计报告。
+
 ### 4.2 工具数 Top 10 文件
 
 | # | 工具数 | 文件 |
