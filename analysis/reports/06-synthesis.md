@@ -32,7 +32,7 @@ CL4R1T4S 数据集揭示了一个**处于剧烈分化与同步演进中的 LLM �
 
 - **K4 — 标签格式是"反解析军备竞赛"的主战场**：R5 §5.5 显示 7 种命名空间并存（`xai:` / `x41:` / `grok:` / `antml:` / `a-n-t-m-l:` / `atem:` / `Response:`），始于 2025-04（Lovable），集中爆发于 2025-07（xAI 两文件）。Anthropic 三阶段演进（`<antml:>`→`{antml:}`→`<a-n-t-m-l:>`）是攻防的直接证据——每一代是对上一代被绕过的回应（R2 §B.4、R4 §6.1）。R5 §5.4 进一步揭示 Anthropic 自 Claude-4.5-Opus（2025-11）起从 XML `<tag>` 全面切换到花括号 `{tag}`，Claude-Opus-4.7 达 186 个花括号 tag——**这是格式代际更替的强信号**。
 
-- **K5 — "PLINIVS_VERITAS 水印集群"揭示 prompt liberation 社区的供应链**：4 个 web app builder 文件（Bolt/Lovable/v0/Same Dev）首行 MD5 完全一致（`745b88b72e6a19ee218dd6459937641a`，R5 §8.1），逐字节 232 字符的拉丁+炼金术 Unicode 混合水印，可定位到 `@elder_plinius` persona（README.md:37）——CL4R1T4S 项目维护者本人即水印设计者，意味着**该数据集部分文件不是"原版泄漏"而是"liberation 社区整理后流通版"**（R2 §G.1、R4 §3.2、R5 §8.5）。**水印共享证明"流通谱系共享"，但不证明"内容设计共享"**——4 文件内容差异巨大（Bolt 的 WebContainer 规约 vs Lovable 的 lov-code 标签 vs v0 的 MDX 组件 vs Same Dev 的 Bun 偏好），区分了"提取谱系"与"设计谱系"。
+- **K5 — "PLINIVS_VERITAS 水印集群"揭示 prompt liberation 社区的供应链**：4 个 web app builder 文件（Bolt/Lovable/v0/Same Dev）首行 MD5 完全一致（`745b88b72e6a19ee218dd6459937641a`，R5 §8.1），逐字节 232 字节（= 127 字符）的拉丁+炼金术 Unicode 混合水印（R25 G80 校正：原"232 字符"混淆字节与字符，实际 232 字节 = 231 字节内容 + 1 换行，Unicode 字符数 127，见 R5 §8.2），可定位到 `@elder_plinius` persona（README.md:37）——CL4R1T4S 项目维护者本人即水印设计者，意味着**该数据集部分文件不是"原版泄漏"而是"liberation 社区整理后流通版"**（R2 §G.1、R4 §3.2、R5 §8.5）。**水印共享证明"流通谱系共享"，但不证明"内容设计共享"**——4 文件内容差异巨大（Bolt 的 WebContainer 规约 vs Lovable 的 lov-code 标签 vs v0 的 MDX 组件 vs Same Dev 的 Bun 偏好），区分了"提取谱系"与"设计谱系"。
 
 - **K6 — 商业策略主导身份声明分化**：8 家编程 Agent **无一披露底层模型**（Cursor 伪装 Composer，其他 7 家用自有品牌），与 5 家头部厂商全部透明披露形成鲜明对比——这是"借力品牌获客"与"建立自有品牌+防绕过"的策略切换（R4 §2.2）。Brave Leo 完全披露 Llama 3.1 8B（最透明）与 Cursor 强制伪装 Composer（最严格）形成两极（R3 §F.3）。Cursor 的演进是最极端案例：从 `Cursor_Prompt.md:4`（早期）"powered by Claude 3.5 Sonnet" 到 `Cursor_2.0:19`（后期）"You are Composer" + 否认所有公开模型——**这是商业策略从"借力 Claude 品牌"转向"建立自有品牌 + 防止用户绕过订阅直接用 Claude"**。
 
@@ -49,7 +49,7 @@ CL4R1T4S 数据集揭示了一个**处于剧烈分化与同步演进中的 LLM �
 | 维度 | 数值 | 来源 |
 |---|---:|---|
 | 文件数 | 66 | R1 校正（原误称 55） |
-| Vendor 数 | 25 | inventory.csv distinct 计数（R2/R5 标注"27"为误差） |
+| Vendor 数 | 25 | inventory.csv distinct 计数（R2/R3/R4 标注"27"为误差，R25 G82 校正：原"R2/R5"为笔误） |
 | 总行数 | 18,947 | R5 §1.1 |
 | 总字节数 | 1,619,689（≈1.58 MB） | R5 §1.1 |
 | 总词数 | 236,765 | R5 §1.1 |
@@ -64,7 +64,7 @@ CL4R1T4S 数据集揭示了一个**处于剧烈分化与同步演进中的 LLM �
 | 最小单文件 | OPENAI/GPT-4o_Image_Gen_Postfill.txt（2 行） | inventory.csv |
 | 最大 vendor 占比 | ANTHROPIC 12 文件占字节 51.9% | R5 §1.4 |
 
-> **校正注记**：R1 原文称"55 文件"，R5 实际 `find -type f | wc -l` 计得 66；inventory.csv 自身一直正确（66 数据行）。R2/R5 部分小节标注"27 vendor"，实际 distinct vendor 计数为 25。本报告所有数据快照以 R5 实测为准。
+> **校正注记**：R1 原文称"55 文件"，R5 实际 `find -type f | wc -l` 计得 66；inventory.csv 自身一直正确（66 数据行）。R2/R3/R4 部分小节标注"27 vendor"（R25 G82 校正：原"R2/R5"为笔误，R5 从未标注"27 vendor"，实际为 R2/R3/R4 继承 R1 错误），实际 distinct vendor 计数为 25。本报告所有数据快照以 R5 实测为准。
 
 ## 1.4 跨切面主题（Cross-cutting Themes）
 
@@ -194,7 +194,7 @@ R4 §2.2 揭示一个反直觉发现：**8 家编程 Agent 无一披露底层模
 
 ## 2.6 趋势 6 — PLINIVS 水印集群现象：prompt liberation 社区的供应链指纹
 
-R5 §8.1 给出决定性证据——4 个文件首行 **MD5 完全一致**（`745b88b72e6a19ee218dd6459937641a`），逐字节 232 字符相同：
+R5 §8.1 给出决定性证据——4 个文件首行 **MD5 完全一致**（`745b88b72e6a19ee218dd6459937641a`），逐字节 232 字节（= 127 字符）相同（R25 G80 校正：原"232 字符"混淆字节与字符）：
 
 - BOLT/Bolt.txt:1
 - LOVABLE/Lovable_2.0.txt:1
@@ -753,7 +753,7 @@ R4 §6/7/8 显示 Anthropic/OpenAI/xAI 都有多版本演进，但当前仅靠�
 2. **PLINIVS 水印文件是"二次制品"**：4 个水印文件（Bolt/Lovable/v0/Same Dev）的内容可能被 liberation 社区重写，与厂商原版可能存在差异；
 3. **inventory.csv 部分字段未核验**：R2 §限制 2 已记录大文件（Devin2/ChatKit）工具数未逐一核验——tools_count 字段可能存在误差；
 4. **"ildeshi" 误标**：inventory.csv 标注 Cursor 2.0 为 "ildeshi思考"，实际是 `ILDeshi` tags——使用此字段时需 awareness（R2 §限制 1、R4 §限制 3）；
-5. **vendor 数误差**：R2/R5 标注"27 vendor"为误差，实际 distinct vendor 计数为 25——使用 vendor 总数时以 25 为准（本报告数据快照已校正）。
+5. **vendor 数误差**：R2/R3/R4 标注"27 vendor"为误差（R25 G82 校正：原"R2/R5"为笔误，R5 从未标注"27 vendor"），实际 distinct vendor 计数为 25——使用 vendor 总数时以 25 为准（本报告数据快照已校正）。
 
 ---
 
@@ -764,7 +764,7 @@ R4 §6/7/8 显示 Anthropic/OpenAI/xAI 都有多版本演进，但当前仅靠�
 本报告基于 R1-R5 五份前置报告的综合，不重复扫描 66 文件，而是：
 1. **跨报告整合**：将 R2（结构）+ R3（行为）+ R4（vendor 横切）+ R5（定量）的发现按"趋势—启示—反思—未决—推荐"五条主线重新切片。
 2. **引用回指**：每个论断回指具体前置报告章节（如"R2 §B.4 趋势 2"），细节请直接查 R2-R5。
-3. **数据快照校正**：以 R5 实测 66 文件为准（R1 原误称 55），vendor 数以 inventory.csv distinct 计数 25 为准（R2/R5 标注"27"为误差）。
+3. **数据快照校正**：以 R5 实测 66 文件为准（R1 原误称 55），vendor 数以 inventory.csv distinct 计数 25 为准（R2/R3/R4 标注"27"为误差，R25 G82 校正：原"R2/R5"为笔误）。
 
 ## A.2 限制
 

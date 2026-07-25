@@ -30,12 +30,12 @@ R7 审计共发现 **5 类 gap**：
 | # | 类型 | 数量 | 严重度 | 已修复 |
 |---|---|---:|---|---|
 | G1 | inventory.csv 字段错误 | 1 | 高 | ✅ has_xml 字段 |
-| G2 | 报告文件数声明过时 | 3 处（R2/R3/R4） | 中 | ⚠️ 报告正文未改，本审计记录 |
-| G3 | 报告 vendor 数误差 | 3 处（R2/R3/R4） | 中 | ⚠️ 报告正文未改，本审计记录 |
-| G4 | R2 报告文件名拼写错误 | 1 处 | 中 | ⚠️ 报告正文未改，本审计记录 |
+| G2 | 报告文件数声明过时 | 3 处（R2/R3/R4） | 中 | ✅ R25 反向核对：R8+ 已修复（R7 时点为"⚠️ 未改"） |
+| G3 | 报告 vendor 数误差 | 3 处（R2/R3/R4） | 中 | ✅ R25 反向核对：R8+ 已修复（R7 时点为"⚠️ 未改"） |
+| G4 | R2 报告文件名拼写错误 | 1 处 | 中 | ✅ R25 反向核对：R8+ 已修复（R7 时点为"⚠️ 未改"） |
 | G5 | inventory `notes` 特性标注不完整 | ~5 处 | 低 | ⚠️ 已记录，未逐项修复（避免过度编辑） |
 
-**关键结论**：inventory.csv 自身**数据正确**（66 行 = 66 文件，无重复无遗漏），唯一字段错误是 `Cursor_Prompt.md` 的 `has_xml` 被误标为 N（实际含 `<user_query>`/`<previous_tool_call>` 标签），已修复。R2/R3/R4 报告正文继承 R1 的"55 文件/27 vendor"错误声明，R5 已校正为"66 文件"，R6 已正式声明此误差并解释成因（R1 凭直觉估算"~55"未实际 `find`）。本审计**未发现** inventory 数据本身存在其他可验证的字段错误。
+**关键结论**：inventory.csv 自身**数据正确**（66 行 = 66 文件，无重复无遗漏），唯一字段错误是 `Cursor_Prompt.md` 的 `has_xml` 被误标为 N（实际含 `<user_query>`/`<previous_tool_call>` 标签），已修复。R2/R3/R4 报告正文继承 R1 的"55 文件/27 vendor"错误声明，R5 已校正为"66 文件"，R6 已正式声明此误差并解释成因（R1 凭直觉估算"~55"未实际 `find`）。**R25 反向核对更新**：R2/R3/R4 line 5 现均已修复为"66 文件 / 25 vendor"（R7 时点保留"未改"状态，R8+ 后续迭代已落地修复，G2/G3/G4 现状态为 ✅ 已修复）。本审计**未发现** inventory 数据本身存在其他可验证的字段错误。
 
 ---
 
@@ -159,23 +159,23 @@ R7 审计共发现 **5 类 gap**：
 
 ### 3.2 检查结果
 
-#### C1 — 文件数声明不一致（中严重度，记录未改）
+#### C1 — 文件数声明不一致（中严重度，R25 更新：已修复）
 
 | 报告 | 位置 | 声明值 | 真实值 | 状态 |
 |---|---|---|---|---|
 | R1 (iterations/01-inventory.md) | line 20, 36, 49, 53 | "55 文件"（已校正为 66） | 66 | ✅ 已校正 |
-| R2 (reports/02-structural.md) | line 5, 7, 15, 99, 440 | "55 文件 / 27 vendor" | 66 / 25 | ❌ 未改 |
-| R3 (reports/03-behavioral.md) | line 5, 7, 15 | "55 文件 / 27 vendor" | 66 / 25 | ❌ 未改 |
-| R4 (reports/04-cross-vendor.md) | line 5 | "55 文件 / 27 vendor" | 66 / 25 | ❌ 未改 |
+| R2 (reports/02-structural.md) | line 5, 7, 15, 99, 440 | "55 文件 / 27 vendor" | 66 / 25 | ✅ R25 已修复（R7 时点为 ❌ 未改） |
+| R3 (reports/03-behavioral.md) | line 5, 7, 15 | "55 文件 / 27 vendor" | 66 / 25 | ✅ R25 已修复（R7 时点为 ❌ 未改） |
+| R4 (reports/04-cross-vendor.md) | line 5 | "55 文件 / 27 vendor" | 66 / 25 | ✅ R25 已修复（R7 时点为 ❌ 未改） |
 | R5 (reports/05-quantitative.md) | line 9 | "66 文件" | 66 | ✅ 正确 |
 | R6 (reports/06-synthesis.md) | line 45-46, 61 | "66 文件 / 25 vendor" + 校正注记 | 66 / 25 | ✅ 正确 |
 
-**结论**：R2/R3/R4 三份报告正文仍保留"55/27"过时声明。R5 已校正，R6 已正式声明并解释成因（R1 凭直觉估算"~55"未实际 `find`）。**本审计不在 R2/R3/R4 正文中批量替换**，避免破坏报告内其他引用链；建议 R8 综合修订时统一更新。
+**结论**：R2/R3/R4 三份报告正文**已于 R8+ 后续迭代修复**（line 5 现均为"66 文件 / 25 vendor；R5 实测校正，原文'55/27'为误差"）。R7 时点保留"未改"状态以避免破坏引用链，R25 反向核对确认修复已落地。**R25 G81 校正**：原 R7 表格状态列"❌ 未改"为 R7 时点快照，现已过时，更新为"✅ R25 已修复"。
 
-#### C2 — Vendor 数声明不一致（中严重度，记录未改）
+#### C2 — Vendor 数声明不一致（中严重度，R25 更新：已修复）
 
-- R2/R3/R4 声明"27 vendor"
-- R6 §1.3 数据快照明确："Vendor 数 = 25 / inventory.csv distinct 计数（R2/R5 标注'27'为误差）"
+- R2/R3/R4 声明"27 vendor"（R25 反向核对：现均已校正为"25 vendor"）
+- R6 §1.3 数据快照明确："Vendor 数 = 25 / inventory.csv distinct 计数（R2/R3/R4 标注'27'为误差）"（R25 G82 校正：原"R2/R5"为笔误，R5 从未标注"27 vendor"）
 - 实测：`awk -F',' 'NR>1{print $1}' inventory.csv | sort -u | wc -l` = 25
 
 **成因推测**：R1 时主 agent 将 inventory.csv 中的"27"误算（可能将"VERCEL V0"中含空格的 vendor 名拆为 2 个），R6 已发现并校正。
@@ -217,7 +217,7 @@ R7 审计共发现 **5 类 gap**：
 
 R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、不可变边界、版权字数限制、jailbreak 反制层数、secret 保护成熟度"，与 R5 的纯词频密度是**互补而非矛盾**的两种测量。**非 gap**，但 R8 可考虑提供统一的安全评分模型。
 
-#### C5 — R2 §Top 10 表中文件名拼写错误（中严重度，记录未改）
+#### C5 — R2 §Top 10 表中文件名拼写错误（中严重度，R25 更新：已修复）
 
 **位置**：`/workspace/analysis/reports/02-structural.md:433`
 
@@ -225,7 +225,7 @@ R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、�
 
 **实际**：磁盘上无 `Windsurf_Pools.md`，实际文件为 `WINDSURF/Windsurf_Tools.md`（已通过 `LS /workspace/WINDSURF/` 与 grep 全工作区确认仅 02-structural.md 引用此错误名）
 
-**影响**：R2 §D.2 表格中 `WINDSURF/Windsurf_Tools.md（19）` 引用正确，仅 Top 10 排名表第 10 行有此拼写错误。**本审计不在 R2 正文中修复**，建议 R8 综合修订时更正。
+**影响**：R2 §D.2 表格中 `WINDSURF/Windsurf_Tools.md（19）` 引用正确，仅 Top 10 排名表第 10 行有此拼写错误。**R25 反向核对**：02-structural.md:433 现已修复为 `WINDSURF/Windsurf_Tools.md + WINDSURF/Windsurf_Prompt.md`（R7 时点为"未改"，R8+ 后续迭代已修复）。
 
 #### C6 — PLINIVS 水印文件清单跨报告一致性（完全一致，无 gap）
 
@@ -372,9 +372,9 @@ R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、�
 | ID | 类型 | 描述 | 位置 | 严重度 | 状态 |
 |---|---|---|---|---|---|
 | G1 | inventory 字段错误 | Cursor_Prompt.md has_xml=N（实际 Y，含 `<user_query>` 标签） | inventory.csv:41 | 高 | ✅ **已修复** |
-| G2 | 报告文件数声明 | R2/R3/R4 声明"55 文件"，实际 66 | 02/03/04-*.md:5 | 中 | ⚠️ 记录未改 |
-| G3 | 报告 vendor 数声明 | R2/R3/R4 声明"27 vendor"，实际 25 | 02/03/04-*.md:5 | 中 | ⚠️ 记录未改 |
-| G4 | R2 文件名拼写 | "Windsurf_Pools.md" 应为 "Windsurf_Tools.md" | 02-structural.md:433 | 中 | ⚠️ 记录未改 |
+| G2 | 报告文件数声明 | R2/R3/R4 声明"55 文件"，实际 66 | 02/03/04-*.md:5 | 中 | ✅ **R25 反向核对：已修复**（R7 时点为"⚠️ 记录未改"） |
+| G3 | 报告 vendor 数声明 | R2/R3/R4 声明"27 vendor"，实际 25 | 02/03/04-*.md:5 | 中 | ✅ **R25 反向核对：已修复**（R7 时点为"⚠️ 记录未改"） |
+| G4 | R2 文件名拼写 | "Windsurf_Pools.md" 应为 "Windsurf_Tools.md" | 02-structural.md:433 | 中 | ✅ **R25 反向核对：已修复**（R7 时点为"⚠️ 记录未改"） |
 | G5 | inventory notes 标注不完整 | 11 处特性（`<think>`/MCP/Computer Use）未在 notes 明示 | inventory.csv 多行 | 低 | ⚠️ 记录未改 |
 
 ---
@@ -411,9 +411,9 @@ CURSOR,Cursor_Prompt.md,54,,.md,,,Cursor (Claude 3.5 Sonnet),0,Y,Y,明示底层C
 
 | gap | 不修复原因 |
 |---|---|
-| G2（R2/R3/R4 文件数声明） | 三份报告正文中"55 文件"出现多次（R2 在 line 5/7/15/99/440 等），批量替换易破坏其他引用链；R5/R6 已校正并提供权威数字，建议 R8 综合修订时统一更新 |
-| G3（vendor 数声明） | 同 G2，且 R6 §1.3 已正式声明此误差 |
-| G4（Windsurf_Pools 拼写） | R2 Top 10 表第 10 行单点错误，不影响 R2 §D.2 表中正确的 `Windsurf_Tools.md` 引用；建议 R8 综合修订时更正 |
+| G2（R2/R3/R4 文件数声明） | 三份报告正文中"55 文件"出现多次（R2 在 line 5/7/15/99/440 等），批量替换易破坏其他引用链；R5/R6 已校正并提供权威数字，建议 R8 综合修订时统一更新。**R25 反向核对**：已于 R8+ 修复，R2/R3/R4 line 5 现均为"66 文件 / 25 vendor" |
+| G3（vendor 数声明） | 同 G2，且 R6 §1.3 已正式声明此误差。**R25 反向核对**：已于 R8+ 修复 |
+| G4（Windsurf_Pools 拼写） | R2 Top 10 表第 10 行单点错误，不影响 R2 §D.2 表中正确的 `Windsurf_Tools.md` 引用；建议 R8 综合修订时更正。**R25 反向核对**：已于 R8+ 修复，02-structural.md:433 现为 `Windsurf_Tools.md` |
 | G5（notes 标注不完整） | notes 是自由文本字段，R2/R3/R4 已系统化记录这些特性；逐项补全 notes 易引入新的不一致 |
 
 ---
@@ -602,7 +602,7 @@ inventory.csv **数据本身正确**（66 行 = 66 文件 = 25 vendor，无重�
 
 ### 9.2 报告一致性
 
-R2/R3/R4 三份报告继承 R1 的"55 文件/27 vendor"过时声明，R5/R6 已校正。除文件数/vendor 数外，**报告间排名、PLINIVS 水印清单、特性引用均一致**。R2 Top 10 复杂度排名第 10 行的"Windsurf_Pools.md"为单点拼写错误（G4），不影响 R2 §D.2 表中正确的"Windsurf_Tools.md"引用。
+R2/R3/R4 三份报告继承 R1 的"55 文件/27 vendor"过时声明，R5/R6 已校正。**R25 反向核对更新**：R2/R3/R4 line 5 现均已修复为"66 文件 / 25 vendor"（G2/G3 已落地）；R2 Top 10 复杂度排名第 10 行的"Windsurf_Pools.md"也已修复为"Windsurf_Tools.md"（G4 已落地）。除文件数/vendor 数外，**报告间排名、PLINIVS 水印清单、特性引用均一致**。
 
 ### 9.3 特性标注完整度
 
