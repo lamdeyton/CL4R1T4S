@@ -465,7 +465,7 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | FORBIDDEN | 5 |
 | **合计** | **315** |
 
-> **方法论注记（R9 补充）**：§7 的计数方法与 §2.3 不同。§2.3 使用 `grep -ioh`（case-insensitive，按**出现次数**计数），故 `do not`=668、`never`=584。§7 使用 `grep -c`（**case-sensitive**，仅匹配大写 `NEVER`/`DO NOT`/`MUST NOT`/`FORBIDDEN`，按**匹配行数**计数），故合计仅 315。两节回答不同问题：§2.3 衡量全局语料词频，§7 衡量"命令式硬约束语气强度"（仅大写强调词）。两者不可直接比较。
+> **方法论注记（R9 补充；R27 G91/G92 校正）**：§7 的计数方法与 §2.3 不同。§2.3 使用 `grep -iohw`（case-insensitive，**整词**匹配，按**出现次数**计数，逐文件求和），故 `do not`=668、`never`=574。§7 使用 `grep -o`（**case-sensitive**，仅匹配大写 `NEVER`/`DO NOT`/`MUST NOT`/`FORBIDDEN`，按**出现次数**计数，非按行数），故合计 315（NEVER=202 / DO NOT=99 / MUST NOT=9 / FORBIDDEN=5）。**R27 G91 校正：原版注记称"§7 使用 `grep -c` 按匹配行数计数"为方法描述错误——若按 `grep -c` 行数计数，NEVER=193 / DO NOT=93 / 合计=300，与声明的 202/99/315 不符；实测确认本节数据按 `grep -o` 出现次数计数，数据正确但方法描述需更正**。**R27 G92 校正：原版注记引用 §2.3 的 `never`=584 为笔误——§2.3 表格实际声明 `never`=574，R27 实测 `grep -iohw never` 逐文件求和 = 574，与 §2.3 表格一致；注记中"584"应更正为"574"**。两节回答不同问题：§2.3 衡量全局语料词频，§7 衡量"命令式硬约束语气强度"（仅大写强调词）。两者不可直接比较。
 
 ### 7.2 Top 20 "最严格"文件（密度降序）
 
@@ -509,7 +509,7 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | MINIMAX/MiniMax.txt | 0 | 语义最简 18 行（R23 G70 校正） |
 | MOONSHOT/Kimi_2_July-11-2025.txt | 0 | brevity 默认 |
 
-> **重要方法论注记**：0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never`（§2.3 全词 grep 计 5 次）与 5 条哲学价值；XAI 全系用小写或 `<policy>` 标签。大写强调词密度衡量的是"命令式硬约束语气强度"，而非安全完整度。密度最高者（Cursor_Prompt 166.67、Windsurf 125、Bolt 98.41）均为短文件 + 密集 do/never 规则的 coding agent。
+> **重要方法论注记（R27 G93 校正）**：0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never`（严格小写 `grep -ohw never` 计 7 次；case-insensitive `grep -iohw never` 计 15 次，含 8 次 `Never` 首字母大写；原版注记称"5 次"为计数错误——R27 实测 `grep -ohw never`=7、`grep -ohw Never`=8、`grep -iohw never`=15，无任何口径得 5）与 5 条哲学价值；XAI 全系用小写或 `<policy>` 标签。大写强调词密度衡量的是"命令式硬约束语气强度"，而非安全完整度。密度最高者（Cursor_Prompt 166.67、Windsurf 125、Bolt 98.41）均为短文件 + 密集 do/never 规则的 coding agent。
 
 ---
 

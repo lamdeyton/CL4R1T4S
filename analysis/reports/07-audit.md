@@ -195,24 +195,26 @@ R7 审计共发现 **5 类 gap**：
 | 9 | LOVABLE/Lovable_2.0.txt | META/Muse_Spark_Apr-08-26.txt (14) |
 | 10 | WINDSURF/Windsurf_Pools.md + Windsurf_Prompt.md | CLINE/Cline.md (14) |
 
-**结论**：R2 复杂度排名是综合维度（工具数 + 章节数 + 标签种类 + 文件体量），R5 工具数是单一维度，两者**重叠 6/10**（FABLE-5、Devin2、Manus、Windsurf、CLINE、CLAUDE-Design），排名差异属合理（R2 给 Anthropic 巨型叙事文件更高权重，R5 纯按工具数）。无矛盾。
+**结论**：R2 复杂度排名是综合维度（工具数 + 章节数 + 标签种类 + 文件体量），R5 工具数是单一维度，两者**重叠 5/10**（R26 G85 校正：原"6/10"误计——CLAUDE-Design-Sys-Prompt 在 R5 Top 10 排第 3，但**不在 R2 §结构复杂度 Top 10**（R2 Top 10 是 CLAUDE-FABLE-5/Devin2/Claude_Opus_4.6/ChatKit_Docs/Claude-Opus-4.7/Claude-4.5-Opus/CLINE/MANUS/LOVABLE/WINDSURF，无 Claude-Design）；实际重叠为 FABLE-5、Devin2、Manus、Windsurf、CLINE 共 5 个），排名差异属合理（R2 给 Anthropic 巨型叙事文件更高权重，R5 纯按工具数）。无矛盾。
 
 #### C4 — R3 安全严格度 vs R5 安全词密度（一致性低，但测量口径不同，非 gap）
 
-| 排名 | R3 Top 10 安全严格度 | R5 Top 10 大写强调词密度 |
+**R27 G90 校正**：原版 R3 Top 10 为 R23 G68 校正前的旧版（缺 Claude-Opus-4.7 / Claude_Sonnet-4.5，仍列 Devin2 / DROID）。R23 G68 已基于 `grep -ic critical/copyright` 反向核对重排 R3 Top 10（Claude-Opus-4.7 CRITICAL=16/copyright=36 居首，Claude_Sonnet-4.5 CRITICAL=14 进 Top 5，Devin2/DROID 移除）。R27 现同步更新本表，并重算重叠。
+
+| 排名 | R3 Top 10 安全严格度（R23 G68 校正版） | R5 Top 10 大写强调词密度 |
 |---|---|---|
-| 1 | Claude-4.1 | Cursor_Prompt (166.67) |
-| 2 | Claude-4.5-Opus | Windsurf_Prompt (125.00) |
-| 3 | CLAUDE-FABLE-5 | Bolt (98.41) |
-| 4 | Grok-Code-Fast-1 | Gemini_Gmail_Assistant (74.07) |
-| 5 | Claude-Design-Sys-Prompt | Hume (67.80) |
-| 6 | Bolt | Dia_CodingSkill (65.89) |
-| 7 | Vercel_v0 | Cluely (63.83) |
-| 8 | Devin2 | Dia_DraftSkill (52.63) |
-| 9 | DROID | GPT-4.5 (49.18) |
+| 1 | Claude-Opus-4.7 | Cursor_Prompt (166.67) |
+| 2 | Claude-4.1 | Windsurf_Prompt (125.00) |
+| 3 | Claude-4.5-Opus | Bolt (98.41) |
+| 4 | CLAUDE-FABLE-5 | Gemini_Gmail_Assistant (74.07) |
+| 5 | Claude_Sonnet-4.5 | Hume (67.80) |
+| 6 | Grok-Code-Fast-1 | Dia_CodingSkill (65.89) |
+| 7 | Claude-Design-Sys-Prompt | Cluely (63.83) |
+| 8 | Bolt | Dia_DraftSkill (52.63) |
+| 9 | Vercel_v0 | GPT-4.5 (49.18) |
 | 10 | GROK-4.1 | Claude_Sonnet-4.5 (48.08) |
 
-**重叠仅 3/10**（Bolt、CLAUDE-FABLE-5 间接相关、Claude_Sonnet-4.5 部分）。差异原因已在 R5 §7.3 重要方法论注记中说明：
+**重叠 2/10**（R27 G90 校正：原"3/10"误计——CLAUDE-FABLE-5 不在 R5 Top 10，实际重叠为 Bolt（R3 #8 / R5 #3）+ Claude_Sonnet-4.5（R3 #5 / R5 #10）共 2 个）。差异原因已在 R5 §7.3 重要方法论注记中说明：
 > "0 大写强调词 ≠ 无安全约束。META/Muse_Spark 用小写 `never` + 5 哲学价值；XAI 全系用小写或 `<policy>` 标签。大写强调词密度衡量的是'命令式硬约束语气强度'，而非安全完整度。"
 
 R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、不可变边界、版权字数限制、jailbreak 反制层数、secret 保护成熟度"，与 R5 的纯词频密度是**互补而非矛盾**的两种测量。**非 gap**，但 R8 可考虑提供统一的安全评分模型。
