@@ -213,9 +213,9 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | 拒绝/婉拒 | refuse | 37 | refusal | 9 | decline | 35 |
 | | reject | 10 | rejected | 5 | refused | 1 |
 | 强约束 | never | 574 | always | 483 | must | 567 |
-| | forbidden | 8 | must not | 20 | do not | 668 |
+| | forbidden | 8 | must not | 20 | do not | 660 |
 | 身份 | user | 2,460 | assistant | 180 | model | 145 |
-| | system | 167 | system prompt | 39 | instructions | 288 |
+| | system | 167 | system prompt | 37 | instructions | 288 |
 | 检索/网页 | search | 1,177 | web | 449 | browse | 27 |
 | | browser | 226 | | | | |
 | 文件/代码 | file | 1,036 | files | 660 | code | 933 |
@@ -225,7 +225,9 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 | 版权 | copyright | 108 | license | 2 | licensed | 6 |
 | 注入 | jailbreak | 4 | injection | 5 | prompt injection | 4 |
 
-> **关键发现**：`do not`（668）远超 `must not`（20）与 `forbidden`（8），说明 OpenAI/Anthropic 系偏好 "do not" 式软约束而非 "MUST NOT"/"FORBIDDEN" 式硬约束。`copyright`（108）高频体现版权保护是跨厂商共识。
+> **关键发现**：`do not`（660）远超 `must not`（20）与 `forbidden`（8），说明 OpenAI/Anthropic 系偏好 "do not" 式软约束而非 "MUST NOT"/"FORBIDDEN" 式硬约束。`copyright`（108）高频体现版权保护是跨厂商共识。
+
+> **R28 G95/G96 校正注记**：原版 §2.3 表格 `do not`=668 与 `system prompt`=39 均为初始数据高估——R28 实测 `grep -riohw 'do not' <25 vendor dirs> | wc -l` = 660（差 8）、`grep -riohw 'system prompt' ...` = 37（差 2），其他 18 个词频均与实测一致。原版差异原因推测：初版生成时可能多计入了 8 个跨行 `do not` 出现（grep -iohw 不跨行）或未严格整词匹配；system prompt 差 2 可能是将 `system_prompt`（下划线变体）误并入。R28 现修正为实测值，全部 20 词频与 `grep -riohw` 整词 case-insensitive 命令结果完全一致。
 
 ---
 
@@ -459,13 +461,13 @@ wc -c < /tmp/all_content_prompt_only  # 1619689
 
 | 词 | 总次数 |
 |---|---:|
-| NEVER | 202 |
+| NEVER | 201 |
 | DO NOT | 99 |
 | MUST NOT | 9 |
 | FORBIDDEN | 5 |
-| **合计** | **315** |
+| **合计** | **314** |
 
-> **方法论注记（R9 补充；R27 G91/G92 校正）**：§7 的计数方法与 §2.3 不同。§2.3 使用 `grep -iohw`（case-insensitive，**整词**匹配，按**出现次数**计数，逐文件求和），故 `do not`=668、`never`=574。§7 使用 `grep -o`（**case-sensitive**，仅匹配大写 `NEVER`/`DO NOT`/`MUST NOT`/`FORBIDDEN`，按**出现次数**计数，非按行数），故合计 315（NEVER=202 / DO NOT=99 / MUST NOT=9 / FORBIDDEN=5）。**R27 G91 校正：原版注记称"§7 使用 `grep -c` 按匹配行数计数"为方法描述错误——若按 `grep -c` 行数计数，NEVER=193 / DO NOT=93 / 合计=300，与声明的 202/99/315 不符；实测确认本节数据按 `grep -o` 出现次数计数，数据正确但方法描述需更正**。**R27 G92 校正：原版注记引用 §2.3 的 `never`=584 为笔误——§2.3 表格实际声明 `never`=574，R27 实测 `grep -iohw never` 逐文件求和 = 574，与 §2.3 表格一致；注记中"584"应更正为"574"**。两节回答不同问题：§2.3 衡量全局语料词频，§7 衡量"命令式硬约束语气强度"（仅大写强调词）。两者不可直接比较。
+> **方法论注记（R9 补充；R27 G91/G92 校正；R28 G97/G98 校正）**：§7 的计数方法与 §2.3 不同。§2.3 使用 `grep -iohw`（case-insensitive，**整词**匹配，按**出现次数**计数，逐文件求和），故 `do not`=660、`never`=574。§7 使用 `grep -ohw`（**case-sensitive**，仅匹配大写 `NEVER`/`DO NOT`/`MUST NOT`/`FORBIDDEN`，**整词**匹配，按**出现次数**计数，非按行数），故合计 314（NEVER=201 / DO NOT=99 / MUST NOT=9 / FORBIDDEN=5）。**R27 G91 校正：原版注记称"§7 使用 `grep -c` 按匹配行数计数"为方法描述错误——若按 `grep -hc` 行数累加，NEVER=193 / DO NOT=93 / 合计=300，与原声明的 202/99/315 不符；实测确认本节数据按 `grep -ohw` 整词出现次数计数**。**R27 G92 校正：原版注记引用 §2.3 的 `never`=584 为笔误——§2.3 表格实际声明 `never`=574，R27 实测 `grep -iohw never` 逐文件求和 = 574，与 §2.3 表格一致；注记中"584"应更正为"574"**。**R28 G97/G98 校正：R27 G91 注记称"数据正确但方法描述需更正"为不完整结论——R28 全量实测 `grep -ohw NEVER` 逐文件求和 = 201（非 202），DO NOT=99 / MUST NOT=9 / FORBIDDEN=5 与原声明一致，合计应为 314（非 315）。原版 NEVER=202/合计=315 为初始数据高估 1 次——R28 定位差异源：`grep -o NEVER`（非整词）全工作区 = 202，`grep -ohw NEVER`（整词）= 201，差 1 次为 `ANTHROPIC/Claude_Opus_4.6.txt:908` 中 "USE THIS TOOL WHENEVER YOU HAVE A QUESTION" 的 `WHENEVER` 子串被 grep -o 误匹配；原版数据是用 `grep -o`（非整词）计的，包含 WHENEVER 中的 NEVER 子串 1 次。R28 现修正 NEVER 与合计为整词匹配实测值，并明确 §7.1 计数方法为 `grep -ohw`（整词）而非 `grep -o`（子串）**。两节回答不同问题：§2.3 衡量全局语料词频，§7 衡量"命令式硬约束语气强度"（仅大写强调词）。两者不可直接比较。
 
 ### 7.2 Top 20 "最严格"文件（密度降序）
 

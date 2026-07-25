@@ -58,7 +58,7 @@ CL4R1T4S 数据集揭示了一个**处于剧烈分化与同步演进中的 LLM �
 | 工具数总和 | 437 | R5 §4.1 |
 | 平均工具数（含工具文件） | 10.93 | R5 §4.1 |
 | 标签总数 | 2,186 | R5 §5.1（R20 G59 修正：原 2,168 遗漏 `<a-n-t-m-l:` 18 个） |
-| 大写强调词总数 | 315（NEVER 202 / DO NOT 99 / MUST NOT 9 / FORBIDDEN 5） | R5 §7.1 |
+| 大写强调词总数 | 314（NEVER 201 / DO NOT 99 / MUST NOT 9 / FORBIDDEN 5） | R5 §7.1（R28 G97 校正：原 315/202 为 `grep -o` 非整词计数含 WHENEVER 子串 1 次，修正为 `grep -ohw` 整词计数） |
 | 时间窗 | 2024-03 至 2026-06（27 个月） | R4 §6.1 |
 | 最大单文件 | ANTHROPIC/Claude-Opus-4.7.txt（149,724 字节 / 1,408 行） | R5 §1.2 |
 | 最小单文件 | OPENAI/GPT-4o_Image_Gen_Postfill.txt（2 行） | inventory.csv |
