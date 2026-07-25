@@ -308,7 +308,7 @@
 
 **Mythos-class dual-use 安全分层是 Fable 5 独有**：`CLAUDE-FABLE-5.md:12` "Claude Fable 5 is the most intelligent generally available model, and includes additional safety measures for dual-use capabilities, while Claude Mythos 5 is available without those measures to only approved organizations."——**这是 Anthropic 首次显式承认"安全分层商业策略"**：Fable 5（有安全措施）面向公众，Mythos 5（无安全措施）面向"approved organizations"。**这反映"安全作为商业差异化"的新阶段**——安全不再只是合规，而是产品分级维度。
 
-**行数/字节数的"超线性增长"**：50（Code 2024）→ 204（3.5）→ 397（3.7）→ 368（4）→ 494（4.1）→ 520（Sonnet 4.5）→ 1222（Opus 4.5）→ 1047（Opus 4.6）→ 1408（Opus 4.7）→ 1597（Fable 5）。**两年内行数从 50 增长到 1597（32 倍），字节从 ~5KB 增长到 122KB（24 倍）**。**增长是超线性的**——Opus 4.5（1222 行）是 Sonnet 4.5（520 行）的 2.35 倍，Fable 5（1597 行）是 Opus 4.5 的 1.3 倍。**这反映"系统提示词复杂度"与"模型能力"的正反馈循环**——模型越强，能处理的指令越多，提示词越复杂。
+**行数/字节数的"超线性增长"**：50（Code 2024）→ 204（3.5）→ 397（3.7）→ 368（4）→ 494（4.1）→ 520（Sonnet 4.5）→ 1222（Opus 4.5）→ 1047（Opus 4.6）→ 1408（Opus 4.7）→ 1597（Fable 5）。**两年内行数从 50 增长到 1597（32 倍），字节从 ~1.6KB 增长到 122KB（约 75 倍）**（R29 G101 校正：原"~5KB→122KB（24 倍）"为起点高估——`Claude_Code_03-04-24.md` 实测 1642 字节≈1.6KB（非 ~5KB）；122750/1642≈74.8 倍（非 24 倍）；终点 122KB 指 `CLAUDE-FABLE-5.md` 122750 字节。R27 G88 已修复 R6 §1.2 K1 同款错误"~5KB→150KB（30 倍）"→"~1.6KB→150KB（约 91 倍）"，但 R27 G88 修复时未 grep R4 §6.1 是否有相同声明——R29 现补完。注意 R6 K1 终点用 Opus 4.7（150KB/91 倍），R4 §6.1 终点用 Fable 5（122KB/75 倍），两者终点不同但起点都是 1.6KB）。**增长是超线性的**——Opus 4.5（1222 行）是 Sonnet 4.5（520 行）的 2.35 倍，Fable 5（1597 行）是 Opus 4.5 的 1.3 倍。**这反映"系统提示词复杂度"与"模型能力"的正反馈循环**——模型越强，能处理的指令越多，提示词越复杂。
 
 ---
 

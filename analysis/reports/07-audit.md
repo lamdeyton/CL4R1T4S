@@ -243,7 +243,7 @@ R3 严格度评估综合了"独立 safety 模块、CRITICAL/PRIORITY 修饰、�
 #### C7 — "ildeshi" 标签的跨报告澄清（已自洽，非 gap）
 
 - inventory.csv:40 notes 字段写 `<think>标签(line 337)`（已使用正确名称）
-- R2 §附录限制 1 明确说明："inventory.csv 标注 Cursor 2.0 为 'ildeshi思考'，但 Grep `ildeshi` 在所有 55 文件中无命中；实际 `CURSOR/Cursor_2.0_Sys_Prompt.txt:337` 使用 `<think>` 标签"
+- R2 §附录限制 1 明确说明："inventory.csv 标注 Cursor 2.0 为 'ildeshi思考'，但 Grep `ildeshi` 在所有 66 文件中无命中；实际 `CURSOR/Cursor_2.0_Sys_Prompt.txt:337` 使用 `<think>` 标签"（R30 G105 校正：原 R7 引用 R2 §限制 1 时写作"55 文件"为引用 R2 旧版文本，R2 §限制 1 现已校正为"66 文件"，R7 引用应同步）
 - R4 §附录限制 3 同样澄清
 
 **结论**：R2/R4 已自我声明此误差，inventory.csv 当前 notes 字段已使用正确的 `<think>` 名称。"ildeshi"是早期版本残留，当前 inventory.csv 中**已不存在**此误标。无 gap。
